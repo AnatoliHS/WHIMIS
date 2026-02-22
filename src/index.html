@@ -2,387 +2,435 @@
 layout: landing.njk
 ---
 
-<div class="logo-container">
-  <img src="/assets/WW.png" alt="Company Logo" class="site-logo">
-</div>
+<div class="landing-viewport">
+  
+  <div class="hero-logo">
+    <img src="/assets/WW.png" alt="Company Logo" class="site-logo">
+  </div>
 
-<div class="intro-container">
-  <div class="inner-container">
+  <div class="hero-text">
     <h1 class="gradient-text">
       Work Smart. Stay Safe. Be WHMIS Wise
     </h1>
-    <p>
-     We provide industry-focused WHMIS training — including Foundational, Dental, and Pharmacy streams — designed to address the unique safety needs of various work environments while ensuring workplace safety, regulatory compliance, and informed handling of hazardous materials.
-    </p>
   </div>
-</div>
 
-
- <div class="button-container">
-    <div class="button-row">
-      <div class="button-wrap" onclick="location.href='/homeReg/'">
-  <div class="button-label">Foundational</div>
-  <button class="glass-button">
-    <img src="/assets/whimiswise2.png" alt="Foundational WHMIS">
-  </button>
-  
-</div>
-
-      <div class="button-wrap" onclick="location.href='/homePharm/'">
-  <div class="button-label">Pharmaceutical</div>
-  <button class="glass-button">
-    <img src="/assets/pharmaWhmis2.png" alt="Pharmaceutical WHMIS">
-  </button>
-  
-</div>
-
-      <div class="button-wrap" onclick="location.href='/homeDent/'">
-  <div class="button-label">Dental</div>
-  <button class="glass-button">
-    <img src="/assets/whimiswise.png" alt="Dental WHMIS">
-  </button>
-  
-</div>
+  <div class="cards-row">
     
+    <div class="card bounce-card" style="animation-delay: 0.8s;" onclick="location.href='/homeReg/'">
+      <div class="card-bg" style="background-image: url('/assets/foundational.png');"></div>
+      
+      <div class="border"></div>
+      <div class="content">
+        <div class="logo">
+          <div class="logo-group">
+            <div class="logo1">
+              <img src="/assets/WW.png" alt="WW Logo">
+            </div>
+            <div class="logo2">
+              <span style="color: #5096db;">Whmis</span><span style="color: #ac2226;">Wise</span>
+            </div>
+          </div>
+          <span class="trail"></span>
+        </div>
+        <span class="logo-bottom-text">Foundational</span>
+      </div>
+      <span class="bottom-text">WHMIS Course</span>
+    </div>
+
+    <div class="card bounce-card" style="animation-delay: 1.0s;" onclick="location.href='/homePharm/'">
+      <div class="card-bg" style="background-image: url('/assets/pharmacy8.png');"></div>
+
+      <div class="border"></div>
+      <div class="content">
+        <div class="logo">
+          <div class="logo-group">
+            <div class="logo1">
+              <img src="/assets/whmiswisePharmacy.png" alt="Pharmacy Logo">
+            </div>
+            <div class="logo2">
+              <span style="color: #5096db;">Whmis</span><span style="color: #ac2226;">Wise</span>
+            </div>
+          </div>
+          <span class="trail"></span>
+        </div>
+        <span class="logo-bottom-text">Pharmaceutical</span>
+      </div>
+      <span class="bottom-text">WHMIS Course</span>
+    </div>
+
+    <div class="card bounce-card" style="animation-delay: 1.2s;" onclick="location.href='/homeDent/'">
+      <div class="card-bg" style="background-image: url('/assets/dental9.jpg');"></div>
+
+      <div class="border"></div>
+      <div class="content">
+        <div class="logo">
+          <div class="logo-group">
+            <div class="logo1">
+              <img src="/assets/whmiswiseDental.png" alt="Dental Logo">
+            </div>
+            <div class="logo2">
+              <span style="color: #5096db;">Whmis</span><span style="color: #ac2226;">Wise</span>
+            </div>
+          </div>
+          <span class="trail"></span>
+        </div>
+        <span class="logo-bottom-text">Dental</span>
+      </div>
+      <span class="bottom-text">WHMIS Course</span>
+    </div>
+
   </div>
+</div>
 
- 
 <style>
-  .button-label {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 600;
-  background: linear-gradient(90deg, #0968e5, #091970);
-   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 0.3px grey;
-  background-clip: text;
-  text-fill-color: transparent;
-  margin-bottom: 10px;
-  pointer-events: none; /* prevents click blocking */
-}
-/* === Gradient text (your existing style) === */
-.gradient-text { 
-  font-size: 2.5rem;
-  font-weight: bold;
-  background: linear-gradient(90deg, #0968e5, #091970);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 0.3px grey;
-  background-clip: text;
-  text-fill-color: transparent;
-}
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+  }
 
-.intro-container {
-  display: flex;
-  justify-content: center;   /* centers horizontally */
-  align-items: center;       /* centers vertically if you give container height */
-  text-align: center;        /* centers inline text inside */
-  padding: 20px;
-}
+  /* ==========================================================
+     🌟 1. FULL PAGE CONTAINER 🌟
+     ========================================================== */
+  .landing-viewport {
+    width: 100vw;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 20px 20px 40px 20px; 
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
 
-.inner-container {
-  max-width: 900px; /* keeps text from stretching too wide */
-  margin: 0 auto;
-}
+  /* ==========================================================
+     🌟 2. TOP: Logo 🌟
+     ========================================================== */
+  .hero-logo {
+    margin-top: 0px;
+    z-index: 5;
+    text-align: center;
+  }
 
-.intro-container p {
-  font-size: 28px;       /* default font size for larger screens */
-  line-height: 1.6;
-}
+  .site-logo {
+    max-width: 280px; 
+    height: auto;
+    opacity: 0;
+    animation: logoReveal 1.2s ease-out forwards 0.2s; 
+  }
 
-.logo-container {
-  display: flex;
-  justify-content: center;  /* centers logo horizontally */
+  @keyframes logoReveal {
+    0% { opacity: 0; transform: translateY(30px); clip-path: inset(100% 0 0 0); }
+    60% { opacity: 1; transform: translateY(0); clip-path: inset(0 0 0 0); }
+    100% { opacity: 1; transform: none; clip-path: inset(0 0 0 0); }
+  }
+
+  /* ==========================================================
+     🌟 3. MIDDLE: Text 🌟
+     ========================================================== */
+  .hero-text {
+    margin-top: 15px; 
+    z-index: 5;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeDown 1s ease-out forwards 0.5s;
+  }
+
+  .gradient-text { 
+    font-size: clamp(2rem, 4vw, 3.8rem); 
+    font-weight: 400 !important;
+    background: linear-gradient(90deg, #0968e5, #091970);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    margin: 0;
+    line-height: 1.2;
+    white-space: nowrap; 
+  }
+
+  @keyframes fadeDown {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ==========================================================
+     🌟 4. BOTTOM: CARDS ROW 🌟
+     ========================================================== */
+  .cards-row {
+    display: flex;
+    flex-direction: row; 
+    gap: 40px; 
+    z-index: 10;
+    margin-top: auto; 
+    margin-bottom: 40px; 
+  }
+
+  .bounce-card {
+    cursor: pointer;
+    opacity: 0;
+    animation: springUp 0.8s cubic-bezier(0.25, 1.25, 0.5, 1) forwards;
+  }
+
+  @keyframes springUp {
+    0% { opacity: 0; transform: translateY(80px) scale(0.9); }
+    60% { opacity: 1; transform: translateY(-10px) scale(1.05); }
+    80% { transform: translateY(5px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* ==========================================================
+     🌟 5. FROSTED GLASS CARDS CSS 🌟
+     ========================================================== */
+  .card {
+    width: 380px;  
+    height: 250px; 
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4); 
+    position: relative;
+    display: grid;
+    place-content: center;
+    border-radius: 16px; 
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15); 
+  }
+
+  .card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0; 
+    transition: opacity 0.6s ease-in-out;
+  }
   
-}
+  .card-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.4); 
+  }
 
-.button-row {
-  display: flex;
-  justify-content: center; /* centers the row */
-  gap: 20px;              /* space between buttons */
-  margin-top: 30px;       /* space above the buttons */
-  flex-wrap: wrap;        /* wraps on small screens */
-}
+  .border {
+    position: absolute; 
+    inset: 0px; 
+    border: 2px solid #ac2226; 
+    opacity: 0; 
+    transform: rotate(10deg); 
+    transition: all 0.6s ease-in-out;
+    border-radius: 14px; 
+    z-index: 1;
+  }
 
-@property --angle-1 {
-      syntax: "<angle>";
-      inherits: false;
-      initial-value: -75deg;
+  .bottom-text {
+    position: absolute; left: 50%; bottom: 15px; transform: translateX(-50%);
+    font-size: 11px; 
+    font-weight: 700;
+    text-transform: uppercase; padding: 2px 10px; 
+    color: #5096db; 
+    background: rgba(255, 255, 255, 0.9); 
+    border-radius: 4px;
+    opacity: 0; letter-spacing: 7px;
+    transition: all 0.6s ease-in-out;
+    white-space: nowrap;
+    z-index: 3;
+  }
+
+  .content { 
+    position: absolute;
+    inset: 0;
+    z-index: 2; 
+  }
+
+  .content .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    height: 110px; 
+    width: 110px; 
+    overflow: hidden; 
+    transition: all 0.6s ease-in-out;
+  }
+
+  .content .logo-group {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0px; 
+    transition: all 0.6s ease-in-out;
+  }
+
+  .content .logo .logo1 { 
+    width: 110px; 
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition: all 0.6s ease-in-out; 
+  }
+  
+  .content .logo .logo1 img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .content .logo .logo2 { 
+    font-size: 32px; 
+    font-weight: 800;
+    white-space: nowrap;
+    opacity: 0;
+    max-width: 0px; 
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+  } 
+
+  .content .logo .trail {
+    position: absolute; 
+    right: 0; 
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50px; 
+    width: 100%; 
+    opacity: 0;
+    border-right: 2px solid transparent; 
+  }
+
+  .content .logo-bottom-text {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    margin-top: 70px; 
+    color: #ac2226; 
+    font-weight: 700;
+    font-size: 16px; 
+    opacity: 0; 
+    transition: all 0.6s ease-in-out 0.1s; 
+    white-space: nowrap;
+  }
+
+  /* ==========================================================
+     🌟 HOVER ANIMATIONS (DESKTOP ONLY) 🌟
+     ========================================================== */
+  .card:hover { 
+    border-radius: 4px; 
+    transform: scale(1.05); 
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2); 
+    background: rgba(255, 255, 255, 0.25); 
+  }
+
+  .card:hover .card-bg { opacity: 0; }
+  .card:hover .logo { width: 340px; }
+  .card:hover .logo-group { gap: 15px; }
+  .card:hover .logo .logo1 { width: 60px; height: 60px; }
+  .card:hover .logo .logo2 { max-width: 250px; opacity: 1; }
+  .card:hover .border { inset: 15px; opacity: 1; transform: rotate(0); }
+  .card:hover .bottom-text { letter-spacing: 3px; opacity: 1; transform: translateX(-50%); }
+  .card:hover .content .logo-bottom-text { opacity: 1; letter-spacing: 9.5px; }
+  .card:hover .trail { animation: trail 0.6s ease-in-out, cardOpacity 0.6s ease-in-out; }
+
+  @keyframes cardOpacity {
+    0% { border-right: 2px solid transparent; }
+    10% { border-right: 2px solid #ac2226; } 
+    80% { border-right: 2px solid #ac2226; }
+    100% { border-right: 2px solid transparent; }
+  }
+
+  @keyframes trail {
+    0% { background: linear-gradient(90deg, rgba(172, 34, 38, 0) 90%, #ac2226 100%); opacity: 0; }
+    30% { background: linear-gradient(90deg, rgba(172, 34, 38, 0) 70%, #ac2226 100%); opacity: 1; }
+    70% { background: linear-gradient(90deg, rgba(172, 34, 38, 0) 70%, #ac2226 100%); opacity: 1; }
+    95% { background: linear-gradient(90deg, rgba(172, 34, 38, 0) 90%, #ac2226 100%); opacity: 0; }
+  }
+
+  /* ==========================================================
+     🌟 6. RESPONSIVE DESIGN (MOBILE FINAL STATE) 🌟
+     ========================================================== */
+  @media (max-width: 1300px) {
+    .cards-row { gap: 20px; transform: scale(0.85); transform-origin: bottom center; }
+  }
+
+  @media (max-width: 1100px) {
+    .cards-row { transform: scale(0.75); }
+  }
+
+  @media (max-width: 768px) {
+    .landing-viewport {
+      padding-top: 60px; 
+      height: auto;
+    }
+    
+    .hero-logo { margin-top: 20px; } 
+    .hero-text { margin-top: 20px; }
+
+    .gradient-text { 
+      white-space: normal; 
+      font-size: 2.5rem; 
     }
 
-    @property --angle-2 {
-      syntax: "<angle>";
-      inherits: false;
-      initial-value: -45deg;
-    }
-
-    :root {
-      --global--size: clamp(2rem, 4vw, 5rem);
-      --anim--hover-time: 400ms;
-      --anim--hover-ease: cubic-bezier(0.25, 1, 0.5, 1);
-    }
-
-.button-wrap {
-      position: relative;
-      z-index: 2;
-      border-radius: 999vw;
-      background: transparent;
-      pointer-events: none;
-      transition: all var(--anim--hover-time) var(--anim--hover-ease);
-    }
-
-    .button-shadow {
-      --shadow-cuttoff-fix: 2em;
-      position: absolute;
-      width: calc(100% + var(--shadow-cuttoff-fix));
-      height: calc(100% + var(--shadow-cuttoff-fix));
-      top: calc(0% - var(--shadow-cuttoff-fix) / 2);
-      left: calc(0% - var(--shadow-cuttoff-fix) / 2);
-      filter: blur(clamp(2px, 0.125em, 12px));
-      pointer-events: none;
-    }
-
-    .button-shadow::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 999vw;
-      background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.1));
-      width: calc(100% - var(--shadow-cuttoff-fix) - 0.25em);
-      height: calc(100% - var(--shadow-cuttoff-fix) - 0.25em);
-      top: calc(var(--shadow-cuttoff-fix) - 0.5em);
-      left: calc(var(--shadow-cuttoff-fix) - 0.875em);
-      padding: 0.125em;
-      box-sizing: border-box;
-      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      mask-composite: exclude;
-    }
-
-    .glass-button {
-      --border-width: clamp(1px, 0.0625em, 4px);
-      all: unset;
-      cursor: pointer;
-      position: relative;
-      z-index: 3;
-      pointer-events: auto;
-      border-radius: 999vw;
-      background: linear-gradient(-75deg, rgba(213, 255, 1, 0.05), rgba(1, 213, 255,0.2), rgba(1, 213, 255,0.05));
-      box-shadow:
-        inset 0 0.125em 0.125em rgba(0,0,0,0.05),
-        inset 0 -0.125em 0.125em rgba(255,255,255,0.5),
-        0 0.25em 0.125em -0.125em rgba(0,0,0,0.2),
-        0 0 0.1em 0.25em inset rgba(255,255,255,0.2),
-        0 0 0 0 rgba(255,255,255,1);
-      backdrop-filter: blur(clamp(1px, 0.125em, 4px));
-      transition: all var(--anim--hover-time) var(--anim--hover-ease);
-      min-width: 220px;
-      text-align: center;
-      font-size: 25px;
-      -webkit-tap-highlight-color: transparent;
-          -webkit-touch-callout: none;
-          user-select: none;
-    }
-
-    .glass-button img {
-  max-width: 150px; /* adjust as needed */
-  height: auto;
-  display: block;
-  margin: 0 auto; /* center image inside button */
-}
-
-    .glass-button:hover {
-      transform: scale(0.975);
-      backdrop-filter: blur(0.01em);
-      box-shadow:
-        inset 0 0.125em 0.125em rgba(0,0,0,0.05),
-        inset 0 -0.125em 0.125em rgba(255,255,255,0.5),
-        0 0.15em 0.05em -0.1em rgba(0,0,0,0.25),
-        0 0 0.05em 0.1em inset rgba(255,255,255,0.5),
-        0 0 0 0 rgba(255,255,255,1);
-    }
-
-    .glass-button span {
-      display: block;
-      position: relative;
-      font-weight: 500;
-      letter-spacing: -0.05em;
-      color: #323232;
-      text-shadow: 0em 0.25em 0.05em rgba(0,0,0,0.1);
-      padding: 0.875em 1.5em;
-    }
-
-    .glass-button span::after {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      width: calc(100% - var(--border-width));
-      height: calc(100% - var(--border-width));
-      top: calc(var(--border-width) / 2);
-      left: calc(var(--border-width) / 2);
-      border-radius: 999vw;
-      background: linear-gradient(var(--angle-2), rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 40% 50%, rgba(255,255,255,0) 55%);
-      background-size: 200% 200%;
-      background-position: 0% 50%;
-      mix-blend-mode: screen;
-      pointer-events: none;
-      transition: background-position calc(var(--anim--hover-time) * 1.25) var(--anim--hover-ease), --angle-2 calc(var(--anim--hover-time) * 1.25) var(--anim--hover-ease);
-    }
-
-    .glass-button:hover span::after {
-      background-position: 25% 50%;
-    }
-
-    .glass-button:active span::after {
-      background-position: 50% 15%;
-      --angle-2: -15deg;
-    }
-
-    .glass-button::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 999vw;
-      width: calc(100% + var(--border-width));
-      height: calc(100% + var(--border-width));
-      top: calc(0% - var(--border-width) / 2);
-      left: calc(0% - var(--border-width) / 2);
-      padding: var(--border-width);
-      background: conic-gradient(
-        from var(--angle-1) at 50% 50%,
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0) 5% 40%,
-        rgba(0,0,0,0.5) 50%,
-        rgba(0,0,0,0) 60% 95%,
-        rgba(0,0,0,0.5)
-      ),
-      linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.5));
-      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      mask-composite: exclude;
-      transition: all var(--anim--hover-time) var(--anim--hover-ease), --angle-1 500ms ease;
-      box-shadow: inset 0 0 0 calc(var(--border-width) / 2) rgba(255,255,255,0.5);
-    }
-
-    .glass-button:hover::after {
-      --angle-1: -125deg;
-    }
-
-    .glass-button:active::after {
-      --angle-1: -75deg;
-    }
-
-    .button-container {
-      --w: 100%;
-      --ai: center;
-      --fd: column;
-      --d: flex;
-      --mt: 50px;
-      display: flex;
+    .cards-row {
+      transform: scale(1); 
+      flex-direction: column; 
       align-items: center;
-      flex-direction: column;
-      margin-top: 50px;
+      gap: 30px;
+      margin-top: 50px; 
     }
 
-    .button-row {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      flex-wrap: wrap;
-      max-width: 1100px;
-      padding: 0 5vw;
-      gap: 80px;
-      margin-bottom: 120px;
-      margin-top: -30px;
+    /* 🌟 MOBILE: PERMANENTLY DISPLAY FINAL HOVER STATE 🌟 */
+    .card {
+      border-radius: 4px !important;
+      /* Disable hover scaling to make it solid and static */
+      transition: none !important; 
     }
 
-    /* Apply the animation */
-.site-logo {
-  max-width: 300px;
-  height: auto;
-  opacity: 0;
-  animation: logoReveal 1.8s ease-out forwards;
-  animation-delay: 0.3s; /* small delay after page load */
-}
+    .card:hover {
+      transform: none !important;
+      background: rgba(255, 255, 255, 0.15) !important;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15) !important;
+    }
 
-    /* Animation for logo reveal */
-@keyframes logoReveal {
-  0% {
-    opacity: 0;
-    transform: translateY(50px); /* starts slightly below */
-    clip-path: inset(100% 0 0 0); /* hidden from bottom */
+    /* Keep the image visible on mobile */
+    .card .card-bg, .card:hover .card-bg {
+      opacity: 1 !important; 
+    }
+    
+    /* Permanently lock in the expanded elements */
+    .card .logo { width: 340px !important; transition: none !important; }
+    .card .logo-group { gap: 15px !important; transition: none !important; }
+    .card .logo .logo1 { width: 60px !important; height: 60px !important; transition: none !important; }
+    .card .logo .logo2 { max-width: 250px !important; opacity: 1 !important; transition: none !important; }
+    
+    .card .border { 
+      inset: 15px !important; 
+      opacity: 1 !important; 
+      transform: rotate(0) !important; 
+      transition: none !important; 
+    }
+    
+    .card .bottom-text { 
+      letter-spacing: 3px !important; 
+      opacity: 1 !important; 
+      transform: translateX(-50%) !important; 
+      transition: none !important; 
+    }
+    
+    .card .content .logo-bottom-text { 
+      opacity: 1 !important; 
+      letter-spacing: 9.5px !important; 
+      transition: none !important; 
+    }
+
+    /* Hide the animated sweeping red line since the card is static */
+    .card .trail, .card:hover .trail { 
+      display: none !important; 
+      animation: none !important; 
+    }
   }
-  60% {
-    opacity: 1;
-    transform: translateY(0);
-    clip-path: inset(0 0 0 0); /* fully visible */
-  }
-  100% {
-    opacity: 1;
-    transform: none;
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-/* Keyframes for the button "spring up" effect */
-@keyframes springUp {
-  0% {
-    opacity: 0;
-    transform: translateY(80px) scale(0.9);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(-10px) scale(1.05);
-  }
-  80% {
-    transform: translateY(5px) scale(0.98);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Apply animation to each button */
-.button-wrap {
-  opacity: 0;
-  animation: springUp 0.9s cubic-bezier(0.25, 1.25, 0.5, 1) forwards;
-}
-
-/* Staggered timing + global delay so logo finishes first */
-.button-wrap:nth-child(1) {
-  animation-delay: 1.0s; /* logo (1.8s) + 0.5s pause */
-}
-
-.button-wrap:nth-child(2) {
-  animation-delay: 1.3s;
-}
-
-.button-wrap:nth-child(3) {
-  animation-delay: 1.6s;
-}
-
-
-
-@media (max-width: 768px) {
-
-  .button-wrap {
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
-  }
-
-  .intro-container {
-    opacity: 1 !important;
-    transform: scale(1) !important;
-    transition: none;
-  }
-
-  .intro-container p {
-    font-size: 20px;     /* smaller font size for mobile */
-  }
-  .button-label {
-    font-size: 18px;
-    margin-bottom: 6px;
-  }
-}
 </style>

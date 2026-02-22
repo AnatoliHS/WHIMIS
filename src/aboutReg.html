@@ -3,318 +3,297 @@ layout: reg.njk
 ---
 
    <script>
-document.addEventListener("DOMContentLoaded", () => {
-  // We removed the 'if' check so this runs on mobile too
-  const sections = document.querySelectorAll('.content, .content-about');
-  
-  requestAnimationFrame(() => {
-    sections.forEach(section => {
-      section.classList.add('visible');
+  // Animation script for content fading in
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll('.content');
+    
+    requestAnimationFrame(() => {
+      sections.forEach(section => {
+        section.classList.add('visible');
+      });
     });
   });
-});
+
+  // Hero entrance animation
+  function animateIntro() {
+    document.body.classList.add("intro-animate");
+  }
+  window.addEventListener("load", animateIntro);
+  window.addEventListener("pageshow", function(event) {
+    if (event.persisted) { animateIntro(); }
+  });
 </script>
     
 <style>
-   
-
-
-  .content, .content-about {
-    opacity: 0;
-    transform: translateY(300px);
-    transition: opacity 1.5s ease-out, transform 0.5s ease-out;
+  body {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
   }
 
-  .content.visible, .content-about.visible {
+  /* Text animation style */
+  .content {
+    opacity: 0;
+    transform: translateY(80px); 
+    transition: opacity 1.5s ease-out, transform 1s ease-out;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 5%;
+  }
+
+  .content.visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-   @property --angle-1 {
-      syntax: "<angle>";
-      inherits: false;
-      initial-value: -75deg;
+  /* SECTION TITLES */
+  .section-title {
+    font-size: 3rem;
+    font-weight: 400;
+    background: linear-gradient(90deg, #0968e5, #091970);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+  }
+
+  /* ==========================================================
+     🌟 PREMIUM HERO SECTION (LOCKED POSITION) 🌟
+     ========================================================== */
+  .gradient-text {
+    font-size: 3.5rem; 
+    font-weight: 400 !important;
+    background: linear-gradient(90deg, #0968e5, #091970);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+
+  .premium-hero-section {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%) scale(0.95); 
+    opacity: 0; 
+    min-height: 700px; 
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -160px; 
+    padding: 260px 0 100px 0; 
+    transition: opacity 1s ease-out, transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+    margin-bottom: 0; 
+  }
+
+  body.intro-animate .premium-hero-section {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+
+  .hero-bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .hero-bg-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center; 
+    opacity: 0.9; 
+    -webkit-mask-image: linear-gradient(to right, transparent 35%, rgba(0,0,0,0.1) 50%, black 90%);
+    mask-image: linear-gradient(to right, transparent 35%, rgba(0,0,0,0.1) 50%, black 90%);
+  }
+
+  .hero-bg-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0; 
+    z-index: 1; 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    -webkit-mask-image: radial-gradient(ellipse at center, transparent 50%, black 100%);
+    mask-image: radial-gradient(ellipse at center, transparent 50%, black 100%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    box-sizing: border-box;
+  }
+
+  .hero-text-half {
+    width: 50%;
+    padding-right: 40px;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+  }
+
+  .hero-text-half p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+  }
+
+  .hero-logo-half {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* ==========================================================
+     🌟 WAVE DIVIDER 🌟
+     ========================================================== */
+  .wave-divider {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 80px; 
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .wave-divider svg { 
+    display: block; 
+    width: calc(100% + 1.3px); 
+    height: 100%; 
+  }
+
+  .wave-top { top: -79px; }
+
+  /* ==========================================================
+     🌟 BOTTOM WHITE SECTION 🌟
+     ========================================================== */
+  .bottom-white-section {
+    background-color: #f2f8fc;
+    width: 100%;
+    position: relative;
+    z-index: 30; 
+    padding-top: 120px; 
+    padding-bottom: 120px;
+    min-height: 80vh;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .gradient-text { font-size: 3rem; }
+
+    .section-title {
+      font-size: 2rem;
     }
 
-    @property --angle-2 {
-      syntax: "<angle>";
-      inherits: false;
-      initial-value: -45deg;
+    .premium-hero-section { 
+      min-height: 500px; 
+      margin-top: -120px;  
+      padding: 180px 0 60px; 
+      transform: none; 
+      left: 0; 
+      width: 100%; 
+      box-sizing: border-box; 
     }
 
-    :root {
-      --global--size: clamp(2rem, 4vw, 5rem);
-      --anim--hover-time: 400ms;
-      --anim--hover-ease: cubic-bezier(0.25, 1, 0.5, 1);
+    body.intro-animate .premium-hero-section { transform: none; }
+
+    .hero-bg-wrapper img { 
+      -webkit-mask-image: linear-gradient(to bottom, black 10%, transparent 55%); 
+      mask-image: linear-gradient(to bottom, black 10%, transparent 55%); 
+    }
+    
+    .hero-bg-wrapper::after {
+      -webkit-mask-image: linear-gradient(to bottom, transparent 60%, black 100%);
+      mask-image: linear-gradient(to bottom, transparent 60%, black 100%);
     }
 
-    .button-wrap {
-      position: relative;
-      z-index: 2;
-      border-radius: 999vw;
-      background: transparent;
-      pointer-events: none;
-      transition: all var(--anim--hover-time) var(--anim--hover-ease);
+    .hero-content { 
+      flex-direction: column-reverse; 
+      text-align: center; 
+      padding-top: 50px; 
     }
 
-    .button-shadow {
-      --shadow-cuttoff-fix: 2em;
-      position: absolute;
-      width: calc(100% + var(--shadow-cuttoff-fix));
-      height: calc(100% + var(--shadow-cuttoff-fix));
-      top: calc(0% - var(--shadow-cuttoff-fix) / 2);
-      left: calc(0% - var(--shadow-cuttoff-fix) / 2);
-      filter: blur(clamp(2px, 0.125em, 12px));
-      pointer-events: none;
+    .hero-logo-half, 
+    .hero-text-half { 
+      width: 100%; 
+      padding: 0; 
     }
 
-    .button-shadow::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 999vw;
-      background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.1));
-      width: calc(100% - var(--shadow-cuttoff-fix) - 0.25em);
-      height: calc(100% - var(--shadow-cuttoff-fix) - 0.25em);
-      top: calc(var(--shadow-cuttoff-fix) - 0.5em);
-      left: calc(var(--shadow-cuttoff-fix) - 0.875em);
-      padding: 0.125em;
-      box-sizing: border-box;
-      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      mask-composite: exclude;
-    }
+    .hero-logo-half { display: none; }
+    
+    .wave-divider { height: 40px; }
+    .wave-top { top: -39px; }
 
-    .glass-button {
-      --border-width: clamp(1px, 0.0625em, 4px);
-      all: unset;
-      cursor: pointer;
-      position: relative;
-      z-index: 3;
-      pointer-events: auto;
-      border-radius: 999vw;
-      background: linear-gradient(-75deg, rgba(1, 213, 255,0.05), rgba(1, 213, 255,0.2), rgba(1, 213, 255,0.05));
-      box-shadow:
-        inset 0 0.125em 0.125em rgba(0,0,0,0.05),
-        inset 0 -0.125em 0.125em rgba(255,255,255,0.5),
-        0 0.25em 0.125em -0.125em rgba(0,0,0,0.2),
-        0 0 0.1em 0.25em inset rgba(255,255,255,0.2),
-        0 0 0 0 rgba(255,255,255,1);
-      backdrop-filter: blur(clamp(1px, 0.125em, 4px));
-      transition: all var(--anim--hover-time) var(--anim--hover-ease);
-      min-width: 220px;
-      text-align: center;
-      font-size: 25px;
-      -webkit-tap-highlight-color: transparent;
-          -webkit-touch-callout: none;
-          user-select: none;
-    }
-
-    .glass-button:hover {
-      transform: scale(0.975);
-      backdrop-filter: blur(0.01em);
-      box-shadow:
-        inset 0 0.125em 0.125em rgba(0,0,0,0.05),
-        inset 0 -0.125em 0.125em rgba(255,255,255,0.5),
-        0 0.15em 0.05em -0.1em rgba(0,0,0,0.25),
-        0 0 0.05em 0.1em inset rgba(255,255,255,0.5),
-        0 0 0 0 rgba(255,255,255,1);
-    }
-
-    .glass-button span {
-      display: block;
-      position: relative;
-      font-weight: 500;
-      letter-spacing: -0.05em;
-      color: #323232;
-      text-shadow: 0em 0.25em 0.05em rgba(0,0,0,0.1);
-      padding: 0.875em 1.5em;
-    }
-
-    .glass-button span::after {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      width: calc(100% - var(--border-width));
-      height: calc(100% - var(--border-width));
-      top: calc(var(--border-width) / 2);
-      left: calc(var(--border-width) / 2);
-      border-radius: 999vw;
-      background: linear-gradient(var(--angle-2), rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 40% 50%, rgba(255,255,255,0) 55%);
-      background-size: 200% 200%;
-      background-position: 0% 50%;
-      mix-blend-mode: screen;
-      pointer-events: none;
-      transition: background-position calc(var(--anim--hover-time) * 1.25) var(--anim--hover-ease), --angle-2 calc(var(--anim--hover-time) * 1.25) var(--anim--hover-ease);
-    }
-
-    .glass-button:hover span::after {
-      background-position: 25% 50%;
-    }
-
-    .glass-button:active span::after {
-      background-position: 50% 15%;
-      --angle-2: -15deg;
-    }
-
-    .glass-button::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 999vw;
-      width: calc(100% + var(--border-width));
-      height: calc(100% + var(--border-width));
-      top: calc(0% - var(--border-width) / 2);
-      left: calc(0% - var(--border-width) / 2);
-      padding: var(--border-width);
-      background: conic-gradient(
-        from var(--angle-1) at 50% 50%,
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0) 5% 40%,
-        rgba(0,0,0,0.5) 50%,
-        rgba(0,0,0,0) 60% 95%,
-        rgba(0,0,0,0.5)
-      ),
-      linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.5));
-      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      mask-composite: exclude;
-      transition: all var(--anim--hover-time) var(--anim--hover-ease), --angle-1 500ms ease;
-      box-shadow: inset 0 0 0 calc(var(--border-width) / 2) rgba(255,255,255,0.5);
-    }
-
-    .glass-button:hover::after {
-      --angle-1: -125deg;
-    }
-
-    .glass-button:active::after {
-      --angle-1: -75deg;
-    }
-
-    .button-container {
-      --w: 100%;
-      --ai: center;
-      --fd: column;
-      --d: flex;
-      --mt: 50px;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      margin-top: 50px;
-    }
-
-    .button-row {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      flex-wrap: wrap;
-      max-width: 1100px;
-      padding: 0 5vw;
-      gap: 80px;
-      
-    }
-    @media (max-width: 768px) {
-       
-        .button-row {
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-            padding: 0 5vw;
-        }
-            
-        .button-wrap {
-            width: 100%;
-        }
-
-        .glass-button {
-            width: 100%;
-            
-        }
-        
-    }
-
+    .bottom-white-section { padding-top: 80px; }
+  }
 </style>
     
-    <div class="info-box"></div>
-    <div class="content">
-        <h1 style="
-      font-size: 2rem;
-      font-weight: bold;
-      background: linear-gradient(90deg, #0968e5, #091970);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      -webkit-text-stroke: 0.3px grey;
-      background-clip: text;
-      text-fill-color: transparent;
-    "><strong>About Us</strong></h1>
-        <p>Our WHMIS course follows all current Canadian safety standards and fully aligns with WHMIS 2015 (GHS). The training was created and reviewed by a Certified WHMIS Trainer, ensuring the content is accurate, compliant, and practical for real workplace settings. Our goal is to provide clear, reliable safety education that helps workers and employers stay compliant and safe.</p>
-            </div>
-    <div class="content">
-        <h1 style="
-      font-size: 2rem;
-      font-weight: bold;
-      background: linear-gradient(90deg, #0968e5, #091970);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      -webkit-text-stroke: 0.3px grey;
-      background-clip: text;
-      text-fill-color: transparent;
-    "><strong>About Our WHMIS Training</strong></h1>
-        <p>Our WHMIS Training is designed for workers across all industries, ensuring that every team member is prepared to recognize and handle hazardous materials safely. Our program provides a broad foundation in chemical safety, hazard identification, and emergency procedures applicable to any work environment.</p>
-            </div>
-            <br>
-            <div class="content">
-            <h1 style="
-      font-size: 2rem;
-      font-weight: bold;
-      background: linear-gradient(90deg, #0968e5, #091970);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      -webkit-text-stroke: 0.3px grey;
-      background-clip: text;
-      text-fill-color: transparent;
-    "><strong>Why Choose Our Online WHMIS Training?</strong></h1>
-                <ul>
-                    <li> Trusted & Verified by Professionals – Our course is developed and reviewed 
-                        by industry experts to meet the latest safety and compliance standards.</li>
-                    <li> Convenient & Accessible – Complete the training 100% online at your own pace, 
-                        from any device, without the need for in-person sessions.</li>
-                    
-                    
-                </ul>
-            <p>By choosing our WHMIS training, you are ensuring a safer workplace, regulatory compliance, and a 
-                seamless certification process—all tailored to your unique professional needs.</p>
-            
-           
-                </div>
-            <br>
-        
-    <br>
-    <!--<div class="content-about">
-        <h5 style="--mx:30px;"><strong>Professional Affiliations</strong></h5>
-        <br>
-        <div class="img" style="--d: flex; --ai: center; --jc: center;">
-           
-            <img src="/assets/OAHI2.png" style="width: 55px; height: auto; --p: 5px;  --w-lg: 120px;" alt="Description of Image 1">
-           
-           
-            <img src="/assets/internachi2.png" style="width: 55px; height: auto;--p: 5px;  --w-lg: 120px;"alt="Description of Image 2">
-           
-           
-            <img src="/assets/flir2.png" style="width: 55px; height: auto;--p: 5px; --w-lg: 120px;"alt="Description of Image 3">
-           
-            
-            <img src="/assets/carson2.png" style="width: 55px; height: auto;--p: 5px;  --w-lg: 120px;"alt="Description of Image 4">
-           
-           
-            <img src="/assets/homegauge2.png"style="width: 55px; height: auto;--p: 5px;  --w-lg: 120px;" alt="Description of Image 5">
-           
-           
-            <img src="/assets/iac22.png"style="width: 55px; height: auto;--p: 5px;  --w-lg: 120px;" alt="Description of Image 5">
-           
-        </div>
-    </div> -->
-    
-    <br>
+<div class="info-box"></div>
 
-   
-   
+<div class="premium-hero-section" id="main-hero">
+  <div class="hero-bg-wrapper">
+    <img src="/assets/workSafety.jpg" alt="Work Safety Background">
+  </div>
 
+  <div class="hero-content">
+    <div class="hero-text-half">
+      <h1 class="gradient-text">About Us</h1>
+      <p>
+        Our WHMIS course follows all current Canadian safety standards and fully aligns with WHMIS 2015 (GHS). The training was created and reviewed by a Certified WHMIS Trainer, ensuring the content is accurate, compliant, and practical for real workplace settings. Our goal is to provide clear, reliable safety education that helps workers and employers stay compliant and safe.
+      </p>
+    </div>
+    <div class="hero-logo-half"></div>
+  </div>
+</div>
+
+<div class="bottom-white-section">
+  
+  <div class="wave-divider wave-top">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#f2f8fc" fill-opacity="1" d="M0,160 C320,300, 420,300, 720,160 C1020,20, 1120,20, 1440,100 L1440,320 L0,320 Z"></path>
+    </svg>
+  </div>
+
+  <div class="content">
+      <h1 class="section-title">About Our WHMIS Training</h1>
+      
+      <p style="font-size: 1.2rem; line-height: 1.8; color: #444; margin-bottom: 50px;">
+          Our WHMIS Training is designed for workers across all industries, ensuring 
+          that every team member is prepared to recognize and handle hazardous materials 
+          safely. Our program provides a broad foundation in chemical safety, hazard 
+          identification, and emergency procedures applicable to any work environment.
+      </p>
+
+      <h1 class="section-title">Why Choose Our Online WHMIS Training?</h1>
+      
+      <ul style="font-size: 1.2rem; line-height: 2; color: #444; padding-left: 20px; list-style-type: none;">
+          <li style="margin-bottom: 15px;">
+            <span style="color: #0968e5; font-weight: bold; margin-right: 10px;">✓</span>
+            <strong>Trusted & Verified</strong> – Developed by industry experts to meet the latest safety standards.
+          </li>
+          <li style="margin-bottom: 15px;">
+            <span style="color: #0968e5; font-weight: bold; margin-right: 10px;">✓</span>
+            <strong>Convenient & Accessible</strong> – 100% online at your own pace from any device.
+          </li>
+      </ul>
+      
+      <p style="font-size: 1.2rem; line-height: 1.8; color: #444; margin-top: 40px;">
+          By choosing our WHMIS training, you are ensuring a safer workplace, regulatory compliance, 
+          and a seamless certification process, all tailored to your unique professional needs.
+      </p>
+  </div>
+</div>

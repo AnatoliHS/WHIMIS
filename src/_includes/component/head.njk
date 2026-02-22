@@ -38,7 +38,14 @@
         --oklch-dark-gray: oklch(20%, 0+5, 150);
       
       }
-      body {   
+      @font-face {
+      font-family: 'AR Custom'; /* We are naming it here so we can use it below */
+      src: url('/assets/ar.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+      body {  
+        font-weight: 300 !important;
       }
 
       /* Add this inside the <style> tag in head.njk */

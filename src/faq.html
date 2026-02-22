@@ -1,318 +1,361 @@
-    
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  // We removed the 'if (window.innerWidth...)' check
-  const detailsList = document.querySelectorAll("details");
-
-  detailsList.forEach((item, index) => {
-    // Delay = index * 200 milliseconds
-    setTimeout(() => {
-      item.classList.add("visible");
-    }, index * 200); 
+  // 1. Hero Entrance Animation
+  function animateIntro() {
+      document.body.classList.add("intro-animate");
+  }
+  window.addEventListener("load", animateIntro);
+  window.addEventListener("pageshow", function(event) {
+      if (event.persisted) { animateIntro(); }
   });
-});
+
+  document.addEventListener("DOMContentLoaded", () => {
+      // 2. FAQ Scroll Trigger (Waterfall effect)
+      const faqs = document.querySelectorAll(".faq-item");
+      const faqContainer = document.querySelector('.bottom-white-section');
+
+      const faqObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  faqs.forEach((item, index) => {
+                      setTimeout(() => {
+                          item.classList.add("visible");
+                      }, index * 200); // Staggered entry
+                  });
+                  faqObserver.unobserve(entry.target);
+              }
+          });
+      }, { threshold: 0.1 });
+
+      if (faqContainer) { faqObserver.observe(faqContainer); }
+
+      // 3. FAQ Click Handler (Accordion Logic)
+      const questions = document.querySelectorAll('.faq-question');
+      questions.forEach((question) => {
+          question.addEventListener('click', () => {
+              const parent = question.parentElement;
+              const isActive = parent.classList.contains('active');
+              
+              // Close other open FAQs
+              document.querySelectorAll('.faq-item.active').forEach(openFaq => {
+                  openFaq.classList.remove('active');
+              });
+
+              // Toggle current one
+              if (!isActive) {
+                  parent.classList.add('active');
+              }
+          });
+      });
+  });
 </script>
 
 <style>
-details {
-  opacity: 0;
-  transform: translateY(50px); /* Start lower */
-}
+  body {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+  }
 
-/* When visible */
-details.visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
-}
+  /* ==========================================================
+     🌟 PREMIUM HERO SECTION (LOCKED COORDINATES) 🌟
+     ========================================================== */
+  .gradient-text {
+    font-size: 4rem; 
+    font-weight: 400 !important;
+    background: linear-gradient(90deg, #0968e5, #091970);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
 
-  .intro-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  max-width: 1400px;
-  margin: 10px auto;
-  
-}
+  .premium-hero-section {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%) scale(0.95); 
+    opacity: 0; 
+    min-height: 700px; 
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -160px; 
+    padding: 260px 0 100px 0; 
+    transition: opacity 1s ease-out, transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+  }
 
-.inner-container {
-  width: 100%;       /* make it take most of the parent container */
-  max-width: 1200px; /* optional: prevent it from being too wide on huge screens */
-  margin: 0 auto;
-}
+  body.intro-animate .premium-hero-section {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
 
-.gradient-text {
-  font-size: 4rem;
-  font-weight: bold;
-  background: linear-gradient(90deg, #0968e5, #091970);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 0.3px grey;
-  background-clip: text;
-  text-fill-color: transparent;
-}
+  .hero-bg-wrapper {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+  }
 
-@property --angle-1 {
-      syntax: "<angle>";
-      inherits: false;
-      initial-value: -75deg;
+  .hero-bg-wrapper img {
+    width: 100%; height: 100%; object-fit: cover; object-position: right center; opacity: 0.9; 
+    /* DESKTOP MASK (Left to Right fade) */
+    -webkit-mask-image: linear-gradient(to right, transparent 35%, rgba(0,0,0,0.1) 50%, black 90%);
+    mask-image: linear-gradient(to right, transparent 35%, rgba(0,0,0,0.1) 50%, black 90%);
+  }
+
+  .hero-bg-wrapper::after {
+    content: ""; position: absolute; inset: 0; z-index: 1; 
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    -webkit-mask-image: radial-gradient(ellipse at center, transparent 50%, black 100%);
+    mask-image: radial-gradient(ellipse at center, transparent 50%, black 100%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2; width: 100%; max-width: 1400px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; padding: 0 5%; box-sizing: border-box;
+  }
+
+  .hero-text-half { width: 55%; padding-right: 40px; }
+
+  .hero-text-half p { font-size: 1.25rem; line-height: 1.6; color: #333; margin: 0; }
+
+  /* ==========================================================
+     🌟 WAVE DIVIDER 🌟
+     ========================================================== */
+  .wave-divider {
+    position: absolute; left: 0; width: 100%; height: 80px; overflow: hidden; line-height: 0;
+  }
+  .wave-divider svg { display: block; width: calc(100% + 1.3px); height: 100%; }
+  .wave-top { top: -79px; }
+
+  /* ==========================================================
+     🌟 BOTTOM WHITE SECTION (FAQ CONTAINER) 🌟
+     ========================================================== */
+  .bottom-white-section {
+    background-color: #f2f8fc; 
+    width: 100%;
+    position: relative;
+    z-index: 30; 
+    padding-top: 100px; 
+    padding-bottom: 120px;
+    min-height: 80vh; 
+  }
+
+  /* --- NEW FAQ STYLING --- */
+  .faq-list-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 5%;
+    box-sizing: border-box;
+  }
+
+  .faq-item {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, rgba(240, 245, 255, 0.4) 0%, rgba(255, 255, 255, 0.8) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(9, 104, 229, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.5s ease;
+  }
+
+  .faq-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Highlight state when active */
+  .faq-item::after {
+    content: ""; position: absolute; inset: 0;
+    background: rgba(9, 104, 229, 0.05); /* Soft blue highlight */
+    opacity: 0; z-index: -1; transition: opacity 0.4s ease;
+  }
+
+  .faq-item.active::after { opacity: 1; }
+  .faq-item.active { border-color: rgba(9, 104, 229, 0.4); }
+
+  .faq-question {
+    padding: 25px 35px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #1a1a1a;
+    position: relative;
+    z-index: 2;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-question::after {
+    content: "+";
+    font-size: 1.5rem;
+    color: #0968e5;
+    transition: transform 0.4s ease;
+  }
+
+  .faq-item.active .faq-question::after {
+    transform: rotate(45deg);
+    content: "+";
+  }
+
+  .faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-item.active .faq-answer {
+    grid-template-rows: 1fr;
+  }
+
+  .answer-content {
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+    padding: 0 35px;
+  }
+
+  .faq-item.active .answer-content {
+    opacity: 1;
+    transition-delay: 0.2s;
+    padding-bottom: 30px;
+  }
+
+  .answer-content p {
+    margin: 0;
+    line-height: 1.6;
+    color: #444;
+  }
+
+  .answer-content ul {
+    margin: 15px 0 0 0;
+    padding-left: 20px;
+  }
+
+  .answer-content li {
+    margin-bottom: 10px;
+    color: #444;
+  }
+
+  @media (max-width: 768px) {
+    .premium-hero-section { min-height: 500px; margin-top: -120px; padding: 180px 0 60px; transform: none; left: 0; width: 100%; }
+    body.intro-animate .premium-hero-section { transform: none; }
+    
+    /* 🌟 UPDATED MOBILE MASK: Top visible, fades to bottom */
+    .hero-bg-wrapper img { 
+        object-position: center top; /* Ensures top of image is focus */
+        -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 60%); 
+        mask-image: linear-gradient(to bottom, black 30%, transparent 60%); 
     }
 
-    @property --angle-2 {
-      syntax: "<angle>";
-      inherits: false;
-      initial-value: -45deg;
-    }
-
-    :root {
-      --global--size: clamp(2rem, 4vw, 5rem);
-      --anim--hover-time: 400ms;
-      --anim--hover-ease: cubic-bezier(0.25, 1, 0.5, 1);
-    }
-
-    .button-wrap {
-      position: relative;
-      z-index: 2;
-      border-radius: 999vw;
-      background: transparent;
-      pointer-events: none;
-      transition: all var(--anim--hover-time) var(--anim--hover-ease);
-    }
-
-    .button-shadow {
-      --shadow-cuttoff-fix: 2em;
-      position: absolute;
-      width: calc(100% + var(--shadow-cuttoff-fix));
-      height: calc(100% + var(--shadow-cuttoff-fix));
-      top: calc(0% - var(--shadow-cuttoff-fix) / 2);
-      left: calc(0% - var(--shadow-cuttoff-fix) / 2);
-      filter: blur(clamp(2px, 0.125em, 12px));
-      pointer-events: none;
-    }
-
-    .button-shadow::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 999vw;
-      background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.1));
-      width: calc(100% - var(--shadow-cuttoff-fix) - 0.25em);
-      height: calc(100% - var(--shadow-cuttoff-fix) - 0.25em);
-      top: calc(var(--shadow-cuttoff-fix) - 0.5em);
-      left: calc(var(--shadow-cuttoff-fix) - 0.875em);
-      padding: 0.125em;
-      box-sizing: border-box;
-      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      mask-composite: exclude;
-    }
-
-    .glass-button {
-      --border-width: clamp(1px, 0.0625em, 4px);
-      all: unset;
-      cursor: pointer;
-      position: relative;
-      z-index: 3;
-      pointer-events: auto;
-      border-radius: 999vw;
-      background: linear-gradient(-75deg, rgba(1, 213, 255,0.05), rgba(1, 213, 255,0.2), rgba(1, 213, 255,0.05));
-      box-shadow:
-        inset 0 0.125em 0.125em rgba(0,0,0,0.05),
-        inset 0 -0.125em 0.125em rgba(255,255,255,0.5),
-        0 0.25em 0.125em -0.125em rgba(0,0,0,0.2),
-        0 0 0.1em 0.25em inset rgba(255,255,255,0.2),
-        0 0 0 0 rgba(255,255,255,1);
-      backdrop-filter: blur(clamp(1px, 0.125em, 4px));
-      transition: all var(--anim--hover-time) var(--anim--hover-ease);
-      min-width: 220px;
-      text-align: center;
-      font-size: 25px;
-      -webkit-tap-highlight-color: transparent;
-          -webkit-touch-callout: none;
-          user-select: none;
-    }
-
-    .glass-button:hover {
-      transform: scale(0.975);
-      backdrop-filter: blur(0.01em);
-      box-shadow:
-        inset 0 0.125em 0.125em rgba(0,0,0,0.05),
-        inset 0 -0.125em 0.125em rgba(255,255,255,0.5),
-        0 0.15em 0.05em -0.1em rgba(0,0,0,0.25),
-        0 0 0.05em 0.1em inset rgba(255,255,255,0.5),
-        0 0 0 0 rgba(255,255,255,1);
-    }
-
-    .glass-button span {
-      display: block;
-      position: relative;
-      font-weight: 500;
-      letter-spacing: -0.05em;
-      color: #323232;
-      text-shadow: 0em 0.25em 0.05em rgba(0,0,0,0.1);
-      padding: 0.875em 1.5em;
-    }
-
-    .glass-button span::after {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      width: calc(100% - var(--border-width));
-      height: calc(100% - var(--border-width));
-      top: calc(var(--border-width) / 2);
-      left: calc(var(--border-width) / 2);
-      border-radius: 999vw;
-      background: linear-gradient(var(--angle-2), rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 40% 50%, rgba(255,255,255,0) 55%);
-      background-size: 200% 200%;
-      background-position: 0% 50%;
-      mix-blend-mode: screen;
-      pointer-events: none;
-      transition: background-position calc(var(--anim--hover-time) * 1.25) var(--anim--hover-ease), --angle-2 calc(var(--anim--hover-time) * 1.25) var(--anim--hover-ease);
-    }
-
-    .glass-button:hover span::after {
-      background-position: 25% 50%;
-    }
-
-    .glass-button:active span::after {
-      background-position: 50% 15%;
-      --angle-2: -15deg;
-    }
-
-    .glass-button::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 999vw;
-      width: calc(100% + var(--border-width));
-      height: calc(100% + var(--border-width));
-      top: calc(0% - var(--border-width) / 2);
-      left: calc(0% - var(--border-width) / 2);
-      padding: var(--border-width);
-      background: conic-gradient(
-        from var(--angle-1) at 50% 50%,
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0) 5% 40%,
-        rgba(0,0,0,0.5) 50%,
-        rgba(0,0,0,0) 60% 95%,
-        rgba(0,0,0,0.5)
-      ),
-      linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.5));
-      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      mask-composite: exclude;
-      transition: all var(--anim--hover-time) var(--anim--hover-ease), --angle-1 500ms ease;
-      box-shadow: inset 0 0 0 calc(var(--border-width) / 2) rgba(255,255,255,0.5);
-    }
-
-    .glass-button:hover::after {
-      --angle-1: -125deg;
-    }
-
-    .glass-button:active::after {
-      --angle-1: -75deg;
-    }
-
-    .button-container {
-      --w: 100%;
-      --ai: center;
-      --fd: column;
-      --d: flex;
-      --mt: 50px;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      margin-top: 50px;
-    }
-
-    .button-row {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      flex-wrap: wrap;
-      max-width: 1100px;
-      padding: 0 5vw;
-      gap: 80px;
-      
-    }
-    @media (max-width: 768px) {
-       
-        .button-row {
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-            padding: 0 5vw;
-        }
-            
-        .button-wrap {
-            width: 100%;
-        }
-
-        .glass-button {
-            width: 100%;
-            
-        }
-        
-    }
-
-
+    .hero-content { flex-direction: column; text-align: center; padding-top: 50px; }
+    .hero-text-half { width: 100%; padding: 0; }
+    .gradient-text { font-size: 2.8rem; }
+    .wave-divider { height: 40px; }
+    .wave-top { top: -39px; }
+    .bottom-white-section { padding: 60px 0; }
+    .faq-question { padding: 20px; font-size: 1rem; }
+    .answer-content { padding: 0 20px; }
+  }
 </style>
 
-    <div class="intro-container">
-  
-    <h1 class="gradient-text">
-      F A Q
-    </h1>
-  
-</div>
-    
-    <div style="--w: 100vw; --p: 30px;">
-        <div class="info-box"></div>
-        <details class="faq">
-            <summary style="background-color: rgba(255, 255, 255, 0.01); --c: black; "><strong>How is this course different from others?</strong></summary>
-            <p>Our WHMIS course for dental workers is tailored to address the unique hazards found in dental clinics.
-                 While standard WHMIS training covers general workplace hazardous materials, our dental-specific course focuses on:</p>
-                <ul>
-                    <li> Common Dental Hazards: Understanding exposure to disinfectants, sterilization chemicals, mercury from amalgam fillings, and nitrous oxide.</li>
-                    <li> Biohazardous Risks: Proper handling of sharps, bloodborne pathogens, and infection control practices.</li>
-                    <li> Specialized PPE: Training on personal protective equipment (PPE) tailored to dental professionals, including face shields, respirators, and chemical-resistant gloves.</li>
-                    <li> Safe Handling & Storage: Guidance on the proper storage, use, and disposal of dental-specific chemicals like anesthetics and x-ray processing agents.</li>
-                    <li> Emergency Procedures: Effective spill response and first aid protocols for chemical exposure in dental settings.</li>                  
-                </ul>
-            <p>This course ensures that dental professionals receive the most relevant WHMIS training specific to their workplace environment.</p>
-        </details>
-        <br>
-        <details class="faq">
-            <summary style="background-color: rgba(255, 255, 255, 0.01); --c: black;"><strong>How long does it take?</strong></summary>
-            <p>The course typically takes around 60 minutes to complete, but the exact duration may vary depending on the individual. 
-                Some may finish more quickly, while others might take a bit longer to fully absorb the material.</p>
-        </details>
-        <br>
-        <details class="faq">
-            <summary style="background-color: rgba(255, 255, 255, 0.01); --c: black;"><strong>Can I do a re-take exam?</strong></summary>
-            <p>Yes, you can retake the exam as many times as needed. There are unlimited attempts to pass the exam, 
-                so you can take it at your own pace until you're confident in your results.</p>
-        </details>
-        <br>
-        <details class="faq">
-            <summary style="background-color: rgba(255, 255, 255, 0.01); --c: black;"><strong>When do i receive the certificate</strong></summary>
-            <p>Certificates are issued as soon as you pass the exam and will be sent to you via email.</p>
-        </details>
-        <br>
-        <details class="faq">
-            <summary style="background-color: rgba(255, 255, 255, 0.01);--c: black; "><strong>How do we pay for the course?</strong></summary>
-            <p>The course can be purchased as an individual course or as a package if you are an employer buying courses for your employees.
-                 </p>
-        </details>
-        <br>
-        <details class="faq">
-            <summary style="background-color: rgba(255, 255, 255, 0.01); --c: black;"><strong>Does this course expire after a certain time of purchaise?</strong></summary>
-            <p>Once you purchase the course, you will have a full year to complete it at your own pace. 
-                This means you can start anytime within that period and progress through the material as your schedule allows. 
-                However, after one year from the purchase date, access to the course will expire.</p>
-        </details>
-        <br>
+<div class="info-box"></div>
+
+<div class="premium-hero-section" id="main-hero">
+  <div class="hero-bg-wrapper">
+    <img src="/assets/faq11.jpg" alt="Dental FAQ Background">
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-text-half">
+      <h1 class="gradient-text">FAQ</h1>
+      <p>
+        Everything you need to know about our dental WHMIS certification. Find answers regarding course duration, compliance standards, re-takes, and how to get your certificate instantly.
+      </p>
     </div>
-        
+    <div class="hero-logo-half" style="width: 45%;"></div>
+  </div>
+</div>
+
+<div class="bottom-white-section">
+  
+  <div class="wave-divider wave-top">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#f2f8fc" fill-opacity="1" d="M0,160 C320,300, 420,300, 720,160 C1020,20, 1120,20, 1440,100 L1440,320 L0,320 Z"></path>
+    </svg>
+  </div>
+
+  <div class="faq-list-wrapper">
     
-    
-   
+    <div class="faq-item">
+        <div class="faq-question">How is this course different from others?</div>
+        <div class="faq-answer">
+            <div class="answer-content">
+                <p>Our WHMIS course for dental workers is tailored to address the unique hazards found in dental clinics. Focus areas include:</p>
+                <ul>
+                    <li>Common Dental Hazards: Exposure to disinfectants, sterilization chemicals, and mercury.</li>
+                    <li>Biohazardous Risks: Handling sharps and bloodborne pathogens.</li>
+                    <li>Specialized PPE: Protective equipment specifically for dental environments.</li>
+                </ul>
+                <p>This ensures dental professionals receive relevant training specific to their workplace.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">How long does it take?</div>
+        <div class="faq-answer">
+            <div class="answer-content">
+                <p>The course typically takes around 60 minutes to complete. Because it's 100% online, you can progress at your own pace and take breaks whenever you need.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Can I do a re-take exam?</div>
+        <div class="faq-answer">
+            <div class="answer-content">
+                <p>Absolutely. We offer unlimited attempts to pass the final exam at no extra cost. We want you to feel confident in your knowledge of dental workplace safety.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">When do I receive the certificate?</div>
+        <div class="faq-answer">
+            <div class="answer-content">
+                <p>Certificates are issued instantly upon completion. As soon as you pass the exam, a high-resolution PDF certificate is generated and sent directly to your email.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">How do we pay for the course?</div>
+        <div class="faq-answer">
+            <div class="answer-content">
+                <p>Payment is handled through our secure online portal. You can purchase a single license for yourself or bulk packages for your entire dental clinic staff.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Does this course expire after purchase?</div>
+        <div class="faq-answer">
+            <div class="answer-content">
+                <p>You have one full year from the date of purchase to complete the course. Once certified, the training is valid for one year, as per standard dental industry safety protocols.</p>
+            </div>
+        </div>
+    </div>
+
+  </div>
+</div>
