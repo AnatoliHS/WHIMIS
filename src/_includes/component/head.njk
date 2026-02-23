@@ -52,18 +52,16 @@
 
 body::before {
   content: "";
-  position: fixed; /* Locks it to the screen, preventing pixelation */
+  position: fixed; 
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1; /* Pushes it behind all your text */
+  right: 0;  /* 🌟 ADD THIS */
+  bottom: 0; /* 🌟 ADD THIS */
+  /* Remove width: 100vw; and height: 100vh; entirely */
   
-  /* Move your background settings here */
+  z-index: -1; 
   background: url('/assets/originalG77.png') no-repeat center center;
   background-size: cover;
-  
-  /* Ensure no white edges */
   margin: 0;
   padding: 0;
 }

@@ -16,67 +16,76 @@ layout: landing.njk
 
   <div class="cards-row">
     
-    <div class="card bounce-card" style="animation-delay: 0.8s;" onclick="location.href='/homeReg/'">
-      <div class="card-bg" style="background-image: url('/assets/foundational.png');"></div>
-      
-      <div class="border"></div>
-      <div class="content">
-        <div class="logo">
-          <div class="logo-group">
-            <div class="logo1">
-              <img src="/assets/WW.png" alt="WW Logo">
+    <div class="card-col">
+      <h2 class="top-label" style="animation-delay: 0.8s;">Foundational</h2>
+      <div class="card bounce-card" style="animation-delay: 0.8s;" data-url="/homeReg/">
+        <div class="card-bg" style="background-image: url('/assets/workSafety.jpg');"></div>
+        
+        <div class="border"></div>
+        <div class="content">
+          <div class="logo">
+            <div class="logo-group">
+              <div class="logo1">
+                <img src="/assets/WW.png" alt="WW Logo">
+              </div>
+              <div class="logo2">
+                <span style="color: #5096db;">Whmis</span><span style="color: #ac2226;">Wise</span>
+              </div>
             </div>
-            <div class="logo2">
-              <span style="color: #5096db;">Whmis</span><span style="color: #ac2226;">Wise</span>
-            </div>
+            <span class="trail"></span>
           </div>
-          <span class="trail"></span>
+          <span class="logo-bottom-text">Foundational</span>
         </div>
-        <span class="logo-bottom-text">Foundational</span>
+        <span class="bottom-text">WHMIS Course</span>
       </div>
-      <span class="bottom-text">WHMIS Course</span>
     </div>
 
-    <div class="card bounce-card" style="animation-delay: 1.0s;" onclick="location.href='/homePharm/'">
-      <div class="card-bg" style="background-image: url('/assets/pharmacy8.png');"></div>
+    <div class="card-col">
+      <h2 class="top-label" style="animation-delay: 1.0s;">Pharmacy</h2>
+      <div class="card bounce-card" style="animation-delay: 1.0s;" data-url="/homePharm/">
+        <div class="card-bg" style="background-image: url('/assets/pharmacy8.png');"></div>
 
-      <div class="border"></div>
-      <div class="content">
-        <div class="logo">
-          <div class="logo-group">
-            <div class="logo1">
-              <img src="/assets/whmiswisePharmacy.png" alt="Pharmacy Logo">
+        <div class="border"></div>
+        <div class="content">
+          <div class="logo">
+            <div class="logo-group">
+              <div class="logo1">
+                <img src="/assets/whmiswisePharmacy.png" alt="Pharmacy Logo">
+              </div>
+              <div class="logo2">
+                <span style="color: #5096db;">Whmis</span><span style="color: #ac2226;">Wise</span>
+              </div>
             </div>
-            <div class="logo2">
-              <span style="color: #5096db;">Whmis</span><span style="color: #ac2226;">Wise</span>
-            </div>
+            <span class="trail"></span>
           </div>
-          <span class="trail"></span>
+          <span class="logo-bottom-text">Pharmaceutical</span>
         </div>
-        <span class="logo-bottom-text">Pharmaceutical</span>
+        <span class="bottom-text">WHMIS Course</span>
       </div>
-      <span class="bottom-text">WHMIS Course</span>
     </div>
 
-    <div class="card bounce-card" style="animation-delay: 1.2s;" onclick="location.href='/homeDent/'">
-      <div class="card-bg" style="background-image: url('/assets/dental9.jpg');"></div>
+    <div class="card-col">
+      <h2 class="top-label" style="animation-delay: 1.2s;">Dental</h2>
+      <div class="card bounce-card" style="animation-delay: 1.2s;" data-url="/homeDent/">
+        <div class="card-bg" style="background-image: url('/assets/dental9.jpg');"></div>
 
-      <div class="border"></div>
-      <div class="content">
-        <div class="logo">
-          <div class="logo-group">
-            <div class="logo1">
-              <img src="/assets/whmiswiseDental.png" alt="Dental Logo">
+        <div class="border"></div>
+        <div class="content">
+          <div class="logo">
+            <div class="logo-group">
+              <div class="logo1">
+                <img src="/assets/whmiswiseDental.png" alt="Dental Logo">
+              </div>
+              <div class="logo2">
+                <span style="color: #5096db;">Whmis</span><span style="color: #ac2226;">Wise</span>
+              </div>
             </div>
-            <div class="logo2">
-              <span style="color: #5096db;">Whmis</span><span style="color: #ac2226;">Wise</span>
-            </div>
+            <span class="trail"></span>
           </div>
-          <span class="trail"></span>
+          <span class="logo-bottom-text">Dental</span>
         </div>
-        <span class="logo-bottom-text">Dental</span>
+        <span class="bottom-text">WHMIS Course</span>
       </div>
-      <span class="bottom-text">WHMIS Course</span>
     </div>
 
   </div>
@@ -94,7 +103,7 @@ layout: landing.njk
      ========================================================== */
   .landing-viewport {
     width: 100vw;
-    min-height: 100vh; 
+    min-height: 100dvh; 
     display: flex;
     flex-direction: column;
     align-items: center; 
@@ -130,6 +139,8 @@ layout: landing.njk
      ========================================================== */
   .hero-text {
     margin-top: 15px; 
+    /* 🌟 Added extra margin to separate the text from the top labels 🌟 */
+    margin-bottom: 50px; 
     z-index: 5;
     text-align: center;
     opacity: 0;
@@ -155,7 +166,7 @@ layout: landing.njk
   }
 
   /* ==========================================================
-     🌟 4. BOTTOM: CARDS ROW 🌟
+     🌟 4. BOTTOM: CARDS ROW & COLUMNS 🌟
      ========================================================== */
   .cards-row {
     display: flex;
@@ -164,6 +175,23 @@ layout: landing.njk
     z-index: 10;
     margin-top: auto; 
     margin-bottom: 40px; 
+  }
+
+  .card-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; 
+  }
+
+  .top-label {
+    color: #ac2226;
+    font-weight: 400;
+    font-size: 1.6rem;
+    margin: 0;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: springUp 0.8s cubic-bezier(0.25, 1.25, 0.5, 1) forwards;
   }
 
   .bounce-card {
@@ -308,7 +336,7 @@ layout: landing.njk
   .content .logo-bottom-text {
     position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
     margin-top: 70px; 
-    color: #ac2226; 
+    color: #5096db; 
     font-weight: 700;
     font-size: 16px; 
     opacity: 0; 
@@ -317,24 +345,24 @@ layout: landing.njk
   }
 
   /* ==========================================================
-     🌟 HOVER ANIMATIONS (DESKTOP ONLY) 🌟
+     🌟 HOVER ANIMATIONS (DESKTOP AND ACTIVE MOBILE) 🌟
      ========================================================== */
-  .card:hover { 
+  .card:hover, .card.animating { 
     border-radius: 4px; 
     transform: scale(1.05); 
     box-shadow: 0 25px 50px rgba(0,0,0,0.2); 
     background: rgba(255, 255, 255, 0.25); 
   }
 
-  .card:hover .card-bg { opacity: 0; }
-  .card:hover .logo { width: 340px; }
-  .card:hover .logo-group { gap: 15px; }
-  .card:hover .logo .logo1 { width: 60px; height: 60px; }
-  .card:hover .logo .logo2 { max-width: 250px; opacity: 1; }
-  .card:hover .border { inset: 15px; opacity: 1; transform: rotate(0); }
-  .card:hover .bottom-text { letter-spacing: 3px; opacity: 1; transform: translateX(-50%); }
-  .card:hover .content .logo-bottom-text { opacity: 1; letter-spacing: 9.5px; }
-  .card:hover .trail { animation: trail 0.6s ease-in-out, cardOpacity 0.6s ease-in-out; }
+  .card:hover .card-bg, .card.animating .card-bg { opacity: 0; }
+  .card:hover .logo, .card.animating .logo { width: 340px; }
+  .card:hover .logo-group, .card.animating .logo-group { gap: 15px; }
+  .card:hover .logo .logo1, .card.animating .logo .logo1 { width: 60px; height: 60px; }
+  .card:hover .logo .logo2, .card.animating .logo .logo2 { max-width: 250px; opacity: 1; }
+  .card:hover .border, .card.animating .border { inset: 15px; opacity: 1; transform: rotate(0); }
+  .card:hover .bottom-text, .card.animating .bottom-text { letter-spacing: 3px; opacity: 1; transform: translateX(-50%); }
+  .card:hover .content .logo-bottom-text, .card.animating .content .logo-bottom-text { opacity: 1; letter-spacing: 9.5px; }
+  .card:hover .trail, .card.animating .trail { animation: trail 0.6s ease-in-out, cardOpacity 0.6s ease-in-out; }
 
   @keyframes cardOpacity {
     0% { border-right: 2px solid transparent; }
@@ -351,7 +379,7 @@ layout: landing.njk
   }
 
   /* ==========================================================
-     🌟 6. RESPONSIVE DESIGN (MOBILE FINAL STATE) 🌟
+     🌟 6. RESPONSIVE DESIGN 🌟
      ========================================================== */
   @media (max-width: 1300px) {
     .cards-row { gap: 20px; transform: scale(0.85); transform-origin: bottom center; }
@@ -382,55 +410,33 @@ layout: landing.njk
       gap: 30px;
       margin-top: 50px; 
     }
-
-    /* 🌟 MOBILE: PERMANENTLY DISPLAY FINAL HOVER STATE 🌟 */
-    .card {
-      border-radius: 4px !important;
-      /* Disable hover scaling to make it solid and static */
-      transition: none !important; 
-    }
-
-    .card:hover {
-      transform: none !important;
-      background: rgba(255, 255, 255, 0.15) !important;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.15) !important;
-    }
-
-    /* Keep the image visible on mobile */
-    .card .card-bg, .card:hover .card-bg {
-      opacity: 1 !important; 
-    }
-    
-    /* Permanently lock in the expanded elements */
-    .card .logo { width: 340px !important; transition: none !important; }
-    .card .logo-group { gap: 15px !important; transition: none !important; }
-    .card .logo .logo1 { width: 60px !important; height: 60px !important; transition: none !important; }
-    .card .logo .logo2 { max-width: 250px !important; opacity: 1 !important; transition: none !important; }
-    
-    .card .border { 
-      inset: 15px !important; 
-      opacity: 1 !important; 
-      transform: rotate(0) !important; 
-      transition: none !important; 
-    }
-    
-    .card .bottom-text { 
-      letter-spacing: 3px !important; 
-      opacity: 1 !important; 
-      transform: translateX(-50%) !important; 
-      transition: none !important; 
-    }
-    
-    .card .content .logo-bottom-text { 
-      opacity: 1 !important; 
-      letter-spacing: 9.5px !important; 
-      transition: none !important; 
-    }
-
-    /* Hide the animated sweeping red line since the card is static */
-    .card .trail, .card:hover .trail { 
-      display: none !important; 
-      animation: none !important; 
-    }
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+      card.addEventListener('click', function(e) {
+        e.preventDefault(); 
+        
+        const targetUrl = this.getAttribute('data-url');
+        const isTouchDevice = window.matchMedia("(hover: none)").matches;
+
+        if (isTouchDevice) {
+          // Add the animation class on tap
+          this.classList.add('animating');
+          
+          // Wait roughly the length of the CSS transition (650ms), then redirect
+          setTimeout(() => {
+            if (targetUrl) window.location.href = targetUrl;
+          }, 1050); 
+        } else {
+          // On desktop, redirect instantly
+          if (targetUrl) window.location.href = targetUrl;
+        }
+      });
+    });
+  });
+</script>
