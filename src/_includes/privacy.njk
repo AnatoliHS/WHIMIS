@@ -14,15 +14,14 @@
         --d: flex; 
         --fd: column;">
 
-  {% include "component/navbar.njk" %}
 
 
-  <main style="flex-grow: 1;">
-    {{ content | safe }}
-  </main>
+    <main style="flex-grow: 1;">
+        {{ content | safe }}
+    </main>
 
-  {% include "component/footer.njk" %}
-  {% include "component/scripts.njk" %}
+    {% include "component/footer.njk" %}
+    {% include "component/scripts.njk" %}
 </body>
 
 </html>

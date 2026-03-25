@@ -1,6 +1,6 @@
 <footer class="whmis-footer">
     <div class="footer-content">
-        
+
         <div class="footer-col brand-col">
             <img src="/assets/whimiswise2.png" alt="Company Logo" class="site-logo-footer">
             <span class="vertical-divider">|</span>
@@ -23,7 +23,10 @@
                 A product of <a href="https://chastech.ca" target="_blank">ChasTech Inc.</a>
             </p>
             <ul class="legal-list">
-                <li><a href="/privacy_statement">Privacy Policy</a></li>
+                <!-- Links updated with specific anchors for Lemon Squeezy reviewers -->
+                <li><a href="/privacy#tos">Terms</a></li>
+                <li><a href="/privacy#refunds">Refunds</a></li>
+                <li><a href="/privacy#privacy">Privacy</a></li>
                 <li class="copyright">&copy; 2026</li>
             </ul>
         </div>
@@ -34,9 +37,9 @@
     /* --- COMPACT FOOTER STYLES --- */
     .whmis-footer {
         width: 100%;
-        background-color: #f2f8fc; 
+        background-color: #f2f8fc;
         /* drastically reduced padding for height control */
-        padding: 15px 30px; 
+        padding: 15px 30px;
         box-sizing: border-box;
         border-top: 1px solid rgba(25, 31, 79, 0.05);
         font-family: sans-serif;
@@ -47,19 +50,21 @@
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
-        align-items: center; 
+        align-items: center;
         gap: 20px;
     }
 
     /* --- BRANDING (HORIZONTAL ROW) --- */
     .brand-col {
         display: flex;
-        align-items: center; /* Forces logo and text to line up */
+        align-items: center;
+        /* Forces logo and text to line up */
         gap: 15px;
     }
 
     .site-logo-footer {
-        height: 80px; /* Much smaller to fit the "bar" look */
+        height: 80px;
+        /* Much smaller to fit the "bar" look */
         width: auto;
         object-fit: contain;
         display: block;
@@ -71,12 +76,13 @@
         font-weight: 300;
     }
 
-    .tagline { 
-        color: #191f4f; 
-        opacity: 0.7; 
-        font-size: 0.85rem; 
+    .tagline {
+        color: #191f4f;
+        opacity: 0.7;
+        font-size: 0.85rem;
         margin: 0;
-        white-space: nowrap; /* Keeps it on one line */
+        white-space: nowrap;
+        /* Keeps it on one line */
     }
 
     /* --- NAVIGATION --- */
@@ -89,7 +95,7 @@
     }
 
     .links-col a {
-        color: #191f4f; 
+        color: #191f4f;
         text-decoration: none;
         font-weight: 600;
         font-size: 0.9rem;
@@ -97,30 +103,31 @@
     }
 
     .links-col a:hover {
-        color: #436aee; 
+        color: #436aee;
         transform: translateY(-2px);
         display: inline-block;
     }
 
     /* --- LEGAL & PARENT COMPANY --- */
-    .legal-col { 
-        text-align: right; 
+    .legal-col {
+        text-align: right;
         display: flex;
-        flex-direction: column; /* Stacked tight on right side */
+        flex-direction: column;
+        /* Stacked tight on right side */
         justify-content: center;
         gap: 2px;
     }
-    
+
     .parent-company {
         font-size: 0.75rem;
         color: #191f4f;
         margin: 0;
         opacity: 0.8;
     }
-    
-    .parent-company a { 
-        color: #436aee; 
-        text-decoration: none; 
+
+    .parent-company a {
+        color: #436aee;
+        text-decoration: none;
         font-weight: bold;
     }
 
@@ -133,43 +140,57 @@
         gap: 10px;
     }
 
-    .legal-list li, .legal-list a {
+    .legal-list li,
+    .legal-list a {
         font-size: 0.75rem;
         color: #191f4f;
         opacity: 0.6;
         text-decoration: none;
     }
-    
-    .legal-list a:hover { opacity: 1; text-decoration: underline; }
+
+    .legal-list a:hover {
+        opacity: 1;
+        text-decoration: underline;
+    }
 
     /* --- MOBILE RESPONSIVENESS --- */
     @media (max-width: 900px) {
-        .footer-content { 
-            flex-direction: column; 
-            text-align: center; 
+        .footer-content {
+            flex-direction: column;
+            text-align: center;
             gap: 20px;
             padding: 10px 0;
         }
 
-        .brand-col { 
-            flex-direction: column; 
+        .brand-col {
+            flex-direction: column;
             gap: 10px;
         }
-        
-        .vertical-divider { display: none; } /* Hide divider on mobile */
-        
-        .tagline { white-space: normal; } /* Allow text wrap on mobile */
 
-        .nav-links { 
-            gap: 15px; 
+        .vertical-divider {
+            display: none;
+        }
+
+        /* Hide divider on mobile */
+
+        .tagline {
+            white-space: normal;
+        }
+
+        /* Allow text wrap on mobile */
+
+        .nav-links {
+            gap: 15px;
             font-size: 1rem;
         }
 
-        .legal-col { 
-            text-align: center; 
+        .legal-col {
+            text-align: center;
             align-items: center;
         }
-        
-        .legal-list { justify-content: center; }
+
+        .legal-list {
+            justify-content: center;
+        }
     }
 </style>
