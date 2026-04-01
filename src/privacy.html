@@ -4,13 +4,12 @@ title: "Legal Center"
 ---
 
 <style>
-    /* --- FONTS & GLOBAL RESET --- */
+    /* --- KEEPING YOUR EXISTING STYLES --- */
     @font-face {
         font-family: 'lequire';
         src: url('/leq.otf') format('opentype');
     }
 
-    /* --- HEADER --- */
     header {
         text-align: center;
         padding: 80px 20px 40px;
@@ -25,13 +24,11 @@ title: "Legal Center"
     .last-updated {
         font-size: 0.9rem;
         color: #436aee;
-        /* Matched to site Blue */
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: bold;
     }
 
-    /* --- QUICK NAV (For Reviewers) --- */
     .policy-nav {
         text-align: center;
         margin-bottom: 20px;
@@ -45,30 +42,23 @@ title: "Legal Center"
         text-transform: uppercase;
     }
 
-    /* --- THE GLASS BOX (MATCHING INDEX.HTML) --- */
     .policy-container {
         max-width: 800px;
         margin: 0 auto;
         margin-top: -10px;
         margin-bottom: 60px;
-
-        /* --- THE INFO-BOX STYLE --- */
         background: rgba(177, 170, 240, 0.2);
-        /* Your specific purple tint */
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 16px;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
         padding: 40px;
-
-        /* Simple Entrance Animation */
         opacity: 0;
         transform: translateY(20px);
         animation: fadeInUp 0.8s ease-out forwards;
     }
 
-    /* --- TYPOGRAPHY INSIDE BOX --- */
     h2 {
         color: #191f4f;
         font-size: 1.8rem;
@@ -93,8 +83,16 @@ title: "Legal Center"
         font-size: 1.1rem;
         line-height: 1.6;
         color: #191f4f;
-        /* Ensuring contrast on the glass */
         margin-bottom: 15px;
+    }
+
+    .legal-alert {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        display: block;
+        margin-bottom: 5px;
+        color: #436aee;
     }
 
     ul {
@@ -112,7 +110,6 @@ title: "Legal Center"
         transition: 0.3s;
     }
 
-    /* --- RETURN LINK --- */
     .back-link {
         text-align: center;
         margin-bottom: 60px;
@@ -132,13 +129,6 @@ title: "Legal Center"
         font-size: 0.9rem;
     }
 
-    .sequence-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(67, 106, 238, 0.4);
-        color: white;
-    }
-
-    /* --- ANIMATION KEYFRAMES --- */
     @keyframes fadeInUp {
         to {
             opacity: 1;
@@ -154,10 +144,9 @@ title: "Legal Center"
     }
 </style>
 
-
 <header>
     <h1>Legal Center</h1>
-    <p class="last-updated">Last Updated: March 25, 2026</p>
+    <p class="last-updated">Last Updated: April 1, 2026</p>
 </header>
 
 <div class="policy-nav">
@@ -169,61 +158,76 @@ title: "Legal Center"
 <div class="policy-container">
 
     <h2 id="tos">1. Terms of Service</h2>
-    <p>By accessing the WHMISWise training platform provided by <strong>ChasTech Inc.</strong>, you agree to comply
-        with and be bound by the following terms.</p>
+    <p>By accessing <strong>WHMISWise</strong>, a training product owned and operated by <strong>ChasTech Inc.</strong>
+        (the "Company"), you agree to comply with
+        and be bound by the following terms.</p>
 
     <h3>1.1 License to Access</h3>
     <p>Upon purchase, you are granted a non-exclusive, non-transferable license to view and complete the training
-        materials. You may not distribute, modify, or resell any portion of the course content.</p>
+        materials for individual use. You may not distribute, modify, or resell any portion of the course content
+        without express written consent from ChasTech Inc.</p>
 
-    <h3>1.2 Compliance & Responsibility</h3>
-    <p>WHMISWise provides educational training based on standard WHMIS requirements. However, final workplace safety
-        compliance remains the legal responsibility of the employer in accordance with provincial and federal
-        regulations.</p>
+    <h3>1.2 Compliance & Employer Responsibility</h3>
+    <p><span class="legal-alert">Important Notice:</span> WHMISWise provides "General WHMIS Education" as defined by
+        Health Canada. You acknowledge that completing this course does not constitute full compliance with the
+        Occupational Health and Safety Act (OHSA). <strong>Employers are legally required</strong> to provide additional
+        site-specific training regarding the particular hazardous products and procedures used in their specific
+        workplace.</p>
 
-    <h3>1.3 Governing Law</h3>
-    <p>These terms are governed by the laws of the Province of Ontario, Canada.</p>
+    <h3>1.3 Content Accuracy & "As-Is" Warranty</h3>
+    <p>While we strive to keep our materials current with GHS and WHMIS standards, materials are provided on an "as-is"
+        basis. ChasTech Inc. does not warrant that the training will be error-free or that it will meet every specific
+        regulatory requirement of your unique industry without further consultation of the relevant legislation.</p>
+
+    <h3>1.4 Limitation of Liability</h3>
+    <p>To the maximum extent permitted by law, ChasTech Inc. and its directors shall not be liable for any indirect,
+        incidental, or consequential damages, including but not limited to personal injury, property damage, or loss of
+        profits arising out of the use or inability to use the training materials. Our total liability shall not exceed
+        the amount paid by you for the specific course license.</p>
+
+    <h3>1.5 Governing Law</h3>
+    <p>These terms are governed by and construed in accordance with the laws of the <strong>Province of Ontario</strong>
+        and the federal laws of Canada applicable therein. You irrevocably submit to the exclusive jurisdiction of the
+        courts located in the Province of Ontario.</p>
 
     <h2 id="refunds">2. Refund Policy</h2>
     <p>We want you to be confident in your training. Our refund policy is designed to be fair while protecting our
         digital intellectual property:</p>
     <ul>
-        <li><strong>30-Day Window:</strong> Refund requests must be made within 30 days of the original purchase
-            date.</li>
-        <li><strong>Eligibility:</strong> To be eligible for a refund, the user must **not** have completed the
-            course and must **not** have acquired the final WHMIS certificate. Once a certificate has been issued,
-            the product is considered "used" and is non-refundable.</li>
-
+        <li><strong>30-Day Window:</strong> Refund requests must be made within 30 days of the original purchase date.
+        </li>
+        <li><strong>Eligibility:</strong> To be eligible for a refund, the user must <strong>not</strong> have completed
+            the course and must <strong>not</strong> have acquired the final WHMIS certificate. Once a certificate has
+            been issued, the product is considered "used" and is non-refundable.</li>
     </ul>
 
     <h2 id="privacy">3. Privacy Policy</h2>
-    <p>At <strong>ChasTech Inc.</strong>, accessible from chastech.ca, one of our main priorities is the privacy of
-        our visitors. This policy outlines how we handle your data.</p>
+    <p>At <strong>ChasTech Inc.</strong>, accessible via whmiswise.com and chastech.ca, one of our main priorities is
+        the privacy of our visitors. This policy outlines how we handle your data.</p>
 
     <h3>3.1 Information We Collect</h3>
-    <p>When you use our services, we may collect:</p>
     <ul>
-        <li>Your Name and Email Address.</li>
-        <li>Billing details (processed securely by our payment provider).</li>
-        <li>Progress and completion data for certification purposes.</li>
+        <li>Your Name and Email Address for account creation.</li>
+        <li>All billing details are processed securely by our PCI-compliant third-party payment processors. ChasTech
+            Inc. does not store or have direct access to your full credit card information.</li>
+        <li>Progress and completion data for certification and verification purposes.</li>
     </ul>
 
     <h3>3.2 How We Use Your Information</h3>
     <ul>
-        <li>To operate and maintain the training platform.</li>
-        <li>To issue verifiable digital certificates.</li>
+        <li>To operate the training platform and issue verifiable digital certificates.</li>
+        <li>To maintain records of training as required for employer compliance audits.</li>
         <li>To communicate regarding your inquiries or account status.</li>
     </ul>
 
     <h3>3.3 Log Files</h3>
-    <p>ChasTech follows a standard procedure of using log files to analyze website traffic. This includes IP
-        addresses, browser types, and date/time stamps. This data is not linked to personally identifiable
-        information.</p>
+    <p>ChasTech follows a standard procedure of using log files to analyze website traffic. This data is not linked to
+        personally identifiable information. Data is managed in accordance with Canadian PIPEDA standards.</p>
 
-    <h2>4. Contact Us</h2>
+    <h2 id="contact">4. Contact Us</h2>
     <p>If you have questions about our policies, please contact us:</p>
     <p>
-        <strong>Email:</strong> <a href="mailto:hello@chastech.ca">info@chastech.ca</a><br>
+        <strong>Email:</strong> <a href="mailto:info@chastech.ca">info@chastech.ca</a><br>
         <strong>Location:</strong> Belleville, Ontario
     </p>
 </div>

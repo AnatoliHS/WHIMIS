@@ -1,24 +1,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <title>{{ title }} | WHMIS Wise Training & Certification</title>
 
-  <meta
-    name="description"
-    content="WHMIS Wise provides comprehensive, easy-to-use online WHMIS training and certification. Get workplace-compliant with our specialized Foundational, Pharmacy, and Dental courses."
-  />
-  <meta
-    name="keywords"
-    content="WHMIS training, online WHMIS certification, workplace safety Canada, WHMIS 2015, GHS compliance, dental WHMIS, pharmacy WHMIS, occupational health and safety"
-  />
+  <meta name="description"
+    content="WHMIS Wise provides comprehensive, easy-to-use online WHMIS training and certification. Get workplace-compliant with our specialized Foundational, Pharmacy, and Dental courses." />
+  <meta name="keywords"
+    content="WHMIS training, online WHMIS certification, workplace safety Canada, WHMIS 2015, GHS compliance, dental WHMIS, pharmacy WHMIS, occupational health and safety" />
   <meta name="author" content="WHMIS Wise" />
   <meta name="robots" content="index, follow" />
   <meta name="revisit-after" content="7 days" />
   <meta name="language" content="English" />
-  
+
   <meta property="og:title" content="{{ title }} | WHMIS Wise" />
-  <meta property="og:description" content="Get certified today with our professional online WHMIS training for workplaces, pharmacies, and dental clinics." />
+  <meta property="og:description"
+    content="Get certified today with our professional online WHMIS training for workplaces, pharmacies, and dental clinics." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://whmiswise.com/" />
   <meta property="og:image" content="https://whmiswise.com/assets/whmiswise-logo.png" />
@@ -44,8 +41,90 @@
   }
   </script>
 
+  {# --- Dynamic WHMISWise FAQ Schema Selection --- #}
+
+  {% if title == "Pharmacy WHMIS Training - FAQ | WHMIS Wise" %}
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is this course different from others?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our Pharmacy-focused course emphasizes handling hazardous drugs like cytotoxics, drug compounding safety, and biohazard awareness specific to pharmacy environments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When do I receive the certificate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Certificates are issued instantly upon completion. As soon as you pass the exam, a high-resolution PDF certificate is generated and sent directly to your email."
+      }
+    }
+    {# Add other Pharmacy questions as needed #}
+  ]
+}
+</script>
+
+  {% elif title == "Dental WHMIS Training - FAQ | WHMIS Wise" %}
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is this course different from others?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This course is tailored to dental clinics, focusing on hazards like disinfectants, sterilization chemicals, mercury exposure, and biohazardous risks like sharps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I do a re-take exam?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. We offer unlimited attempts to pass the final exam at no extra cost. We want you to feel confident in your knowledge of dental workplace safety."
+      }
+    }
+  ]
+}
+</script>
+
+  {% elif title == "Foundational WHMIS Training - FAQ | WHMIS Wise" %}
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is this course different from others?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our Foundational course provides a wide-range overview including hazard classes, Safety Data Sheets (SDS), and emergency response for any general workplace."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The course typically takes around 60 minutes to complete. Because it's 100% online, you can progress at your own pace."
+      }
+    }
+  ]
+}
+</script>
+  {% endif %}
+
   <link rel="stylesheet" href="https://startr.style/style.css" />
-    
+
   <style>
     :root {
       --oklch-light-green: oklch(80%, 0.15, 145);
@@ -59,27 +138,27 @@
       --oklch-light-gray: oklch(90%, 0.01, 0);
       --oklch-dark-gray: oklch(20%, 0+5, 150);
     }
-    
+
     @font-face {
-      font-family: 'AR Custom'; 
+      font-family: 'AR Custom';
       src: url('/assets/ar.otf') format('opentype');
       font-weight: normal;
       font-style: normal;
     }
-    
-    body {  
+
+    body {
       font-weight: 300 !important;
     }
 
     /* Fixed Global Background */
     body::before {
       content: "";
-      position: fixed; 
+      position: fixed;
       top: 0;
       left: 0;
       height: 100dvh;
       width: 100vw;
-      z-index: -1; 
+      z-index: -1;
       background: url('/assets/originalG77.png') no-repeat center center;
       background-size: cover;
       margin: 0;
@@ -87,14 +166,14 @@
     }
 
     .coming-soon {
-      flex: 1; 
+      flex: 1;
       padding: 10px;
       text-align: center;
       color: black;
     }
-      
+
     .info-box {
-      flex: 1; 
+      flex: 1;
       padding: 10px;
       text-align: center;
       color: black;
@@ -103,34 +182,34 @@
     .info-box img {
       width: 20%;
     }
-    
+
     .content {
       width: calc(100% - 20px);
-      max-width: 1300px; 
+      max-width: 1300px;
       padding: 20px 5rem;
-      margin: 0 auto; 
+      margin: 0 auto;
       margin-bottom: 10px;
     }
 
     .content2 {
       width: calc(100% - 20px);
-      max-width: 1000px; 
+      max-width: 1000px;
       padding: 20px 5rem;
-      background-color: rgba(255, 255, 255, 0.9); 
+      background-color: rgba(255, 255, 255, 0.9);
       border-radius: 5px;
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8); 
-      margin: 0 auto; 
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+      margin: 0 auto;
       margin-bottom: 10px;
     }
 
     .content3 {
       width: calc(100% - 20px);
-      max-width: 800px; 
+      max-width: 800px;
       padding: 40px 5rem;
-      background: linear-gradient(to bottom, #f2f2f2, #ffffff); 
+      background: linear-gradient(to bottom, #f2f2f2, #ffffff);
       border-radius: 5px;
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8); 
-      margin: 0 auto; 
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+      margin: 0 auto;
       margin-bottom: 50px;
       margin-top: -20px;
       font-size: 20px;
@@ -160,63 +239,94 @@
     }
 
     .cert-image {
-      width: 150px; 
+      width: 150px;
       height: auto;
       object-fit: contain;
     }
 
     .content-fees {
       width: calc(100% - 20px);
-      max-width: 1300px; 
+      max-width: 1300px;
       padding: 20px 1rem;
-      background-color: rgba(255, 255, 255, 0.9); 
+      background-color: rgba(255, 255, 255, 0.9);
       border-radius: 5px;
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8); 
-      margin: 0 auto; 
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+      margin: 0 auto;
       margin-bottom: 10px;
     }
 
     .content-about {
       width: calc(100% - 20px);
-      max-width: 800px; 
+      max-width: 800px;
       padding: 20px 1rem;
-      background-color: rgba(255, 255, 255, 0.9); 
+      background-color: rgba(255, 255, 255, 0.9);
       border-radius: 5px;
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8); 
-      margin: 0 auto; 
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+      margin: 0 auto;
       margin-bottom: 10px;
     }
-    
+
     .faq {
       background-color: rgba(255, 255, 255, 0.9);
       border-color: rgba(255, 255, 255, 0.8);
       width: 100%;
-      margin: 0 auto; 
-      max-width: 1000px; 
+      margin: 0 auto;
+      max-width: 1000px;
       background: linear-gradient(90deg, rgba(30, 251, 170, 0.1) 0%, rgba(30, 240, 251, 0.15) 100%);
       border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.3); 
-      backdrop-filter: blur(12px); 
-      -webkit-backdrop-filter: blur(12px); 
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25); 
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
       transition: all 0.3s ease;
       padding: 20px;
     }
 
     @media (max-width: 1310px) {
-      .info-box { flex-basis: 100%; }
-      .info-box img { max-width: 100px; }
-      .coming-soon img { max-width: 30em; }
-      div[style*="display: flex"] { flex-direction: column; }
-      .content { padding: 20px 1rem; }
-      .content2 { padding: 20px 1rem; }
-      nav img { display: none !important; }
-      .whmis-carousel { display: none !important; }
-      .header { min-width: 42em; }
-      .content3 img { display: none !important; }
+      .info-box {
+        flex-basis: 100%;
+      }
+
+      .info-box img {
+        max-width: 100px;
+      }
+
+      .coming-soon img {
+        max-width: 30em;
+      }
+
+      div[style*="display: flex"] {
+        flex-direction: column;
+      }
+
+      .content {
+        padding: 20px 1rem;
+      }
+
+      .content2 {
+        padding: 20px 1rem;
+      }
+
+      nav img {
+        display: none !important;
+      }
+
+      .whmis-carousel {
+        display: none !important;
+      }
+
+      .header {
+        min-width: 42em;
+      }
+
+      .content3 img {
+        display: none !important;
+      }
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     .slideshow-container {
       max-width: 900px;
@@ -225,11 +335,16 @@
       background: #fff;
       padding: 30px 20px;
       border-radius: 10px;
-      box-shadow: 5px 10px 10px rgba(0,0,0,0.6);
+      box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.6);
     }
 
-    .mySlides { display: none; }
-    .review-content { text-align: center; }
+    .mySlides {
+      display: none;
+    }
+
+    .review-content {
+      text-align: center;
+    }
 
     .review-header {
       display: flex;
@@ -245,8 +360,14 @@
       border-radius: 50%;
     }
 
-    .stars { font-size: 20px; color: gold; }
-    .google-logo { height: 25px; }
+    .stars {
+      font-size: 20px;
+      color: gold;
+    }
+
+    .google-logo {
+      height: 25px;
+    }
 
     .review-text {
       font-size: 16px;
@@ -256,7 +377,8 @@
       padding: 0 10px;
     }
 
-    .prev, .next {
+    .prev,
+    .next {
       cursor: pointer;
       position: absolute;
       top: 50%;
@@ -270,11 +392,23 @@
       color: black;
     }
 
-    .next { right: 0; }
-    .prev { left: 0; }
-    .prev:hover, .next:hover { background-color: rgba(0,0,0,0.1); }
+    .next {
+      right: 0;
+    }
 
-    .text { display: none; } 
+    .prev {
+      left: 0;
+    }
+
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .text {
+      display: none;
+    }
+
     .numbertext {
       color: #999;
       font-size: 12px;
@@ -299,11 +433,19 @@
       transition: background-color 0.6s ease;
     }
 
-    .active, .dot:hover { background-color: #717171; }
+    .active,
+    .dot:hover {
+      background-color: #717171;
+    }
 
     @keyframes fade {
-      from {opacity: .4} 
-      to {opacity: 1}
+      from {
+        opacity: .4
+      }
+
+      to {
+        opacity: 1
+      }
     }
 
     .fade {
