@@ -5,17 +5,18 @@ title: "Dental WHMIS Training - Contact | WHMIS Wise"
 
 <div class="page-container">
   <div class="contact-wrapper">
-    
+
     <div class="contact-header">
       <h1 class="gradient-text">Get in Touch</h1>
-      <p>Have a question about our WHMIS training? Need to purchase a bulk package for your clinic? Fill out the form and our team will get back to you shortly.</p>
+      <p>Have a question about our WHMIS training? Need to purchase a bulk package for your clinic? Fill out the form
+        and our team will get back to you shortly.</p>
     </div>
 
     <div class="contact-card">
-      <form action="https://formsubmit.co/a4fc1e3fbe29d4078d38d1e81fec4f59" method="POST">
+      <form action="https://formsubmit.co/" method="POST">
         <input type="text" name="_honey" style="display:none">
         <input type="hidden" name="_subject" value="New Inquiry - WHMIS Wise Website">
-        <input type="hidden" name="_captcha" value="false">
+
         <input type="hidden" name="_next" value="https://whmiswise.com/thanks">
 
         <div class="input-group">
@@ -43,7 +44,7 @@ title: "Dental WHMIS Training - Contact | WHMIS Wise"
         </div>
       </form>
     </div>
-    
+
   </div>
 </div>
 
@@ -58,13 +59,15 @@ title: "Dental WHMIS Training - Contact | WHMIS Wise"
      🌟 PAGE LAYOUT (No background color) 🌟
      ========================================================== */
   .page-container {
-    background: transparent; 
+    background: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 5% 60px 5%; /* Gave desktop a little more top clearance too just in case */
+    padding: 100px 5% 60px 5%;
+    /* Gave desktop a little more top clearance too just in case */
     box-sizing: border-box;
-    min-height: 100dvh; /* Use dynamic viewport height for better mobile support */
+    min-height: 100dvh;
+    /* Use dynamic viewport height for better mobile support */
   }
 
   /* 🌟 SPLIT LAYOUT (Side by Side) 🌟 */
@@ -72,17 +75,20 @@ title: "Dental WHMIS Training - Contact | WHMIS Wise"
     width: 100%;
     max-width: 1000px;
     display: flex;
-    flex-direction: row; 
-    align-items: center; 
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
-    gap: 60px; 
+    gap: 60px;
     animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     opacity: 0;
     transform: translateY(40px);
   }
 
   @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* ==========================================================
@@ -90,11 +96,11 @@ title: "Dental WHMIS Training - Contact | WHMIS Wise"
      ========================================================== */
   .contact-header {
     text-align: left;
-    flex: 1; 
+    flex: 1;
   }
 
   .gradient-text {
-    font-size: 3.5rem; 
+    font-size: 3.5rem;
     font-weight: 800 !important;
     background: linear-gradient(90deg, #0968e5, #091970);
     -webkit-background-clip: text;
@@ -115,17 +121,17 @@ title: "Dental WHMIS Training - Contact | WHMIS Wise"
      🌟 CONTACT CARD & FORM (Right Side) 🌟
      ========================================================== */
   .contact-card {
-    background: #ffffff; 
+    background: #ffffff;
     flex: 1.2;
     width: 100%;
     padding: 40px 50px;
     border-radius: 24px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08); 
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
     box-sizing: border-box;
   }
 
   .input-group {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
   }
@@ -138,27 +144,27 @@ title: "Dental WHMIS Training - Contact | WHMIS Wise"
     margin-left: 5px;
   }
 
-  .input-group input, 
+  .input-group input,
   .input-group textarea {
     width: 100%;
     padding: 14px 18px;
     font-size: 1rem;
     font-family: inherit;
     color: #333;
-    background-color: #f4f7fb; 
+    background-color: #f4f7fb;
     border: 1px solid transparent;
     border-radius: 12px;
     box-sizing: border-box;
     transition: all 0.3s ease;
-    resize: none; 
+    resize: none;
   }
 
-  .input-group input::placeholder, 
+  .input-group input::placeholder,
   .input-group textarea::placeholder {
     color: #a0aec0;
   }
 
-  .input-group input:focus, 
+  .input-group input:focus,
   .input-group textarea:focus {
     outline: none;
     background-color: #ffffff;
@@ -169,8 +175,17 @@ title: "Dental WHMIS Training - Contact | WHMIS Wise"
   /* ==========================================================
      🌟 GLASS BUTTON CSS 🌟
      ========================================================== */
-  @property --angle-1 { syntax: "<angle>"; inherits: false; initial-value: -75deg; }
-  @property --angle-2 { syntax: "<angle>"; inherits: false; initial-value: -45deg; }
+  @property --angle-1 {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: -75deg;
+  }
+
+  @property --angle-2 {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: -45deg;
+  }
 
   :root {
     --global--size: clamp(2rem, 4vw, 5rem);
@@ -185,7 +200,7 @@ title: "Dental WHMIS Training - Contact | WHMIS Wise"
     background: transparent;
     pointer-events: none;
     transition: all var(--anim--hover-time) var(--anim--hover-ease);
-    width: 100%; 
+    width: 100%;
   }
 
   .button-shadow {
@@ -204,7 +219,7 @@ title: "Dental WHMIS Training - Contact | WHMIS Wise"
     position: absolute;
     inset: 0;
     border-radius: 999vw;
-    background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.1));
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
     width: calc(100% - var(--shadow-cuttoff-fix) - 0.25em);
     height: calc(100% - var(--shadow-cuttoff-fix) - 0.25em);
     top: calc(var(--shadow-cuttoff-fix) - 0.5em);
@@ -223,21 +238,21 @@ title: "Dental WHMIS Training - Contact | WHMIS Wise"
     z-index: 3;
     pointer-events: auto;
     border-radius: 999vw;
-    background: linear-gradient(-75deg, rgba(1, 213, 255,0.05), rgba(1, 213, 255,0.2), rgba(1, 213, 255,0.05));
+    background: linear-gradient(-75deg, rgba(1, 213, 255, 0.05), rgba(1, 213, 255, 0.2), rgba(1, 213, 255, 0.05));
     box-shadow:
-      inset 0 0.125em 0.125em rgba(0,0,0,0.05),
-      inset 0 -0.125em 0.125em rgba(255,255,255,0.5),
-      0 0.25em 0.125em -0.125em rgba(0,0,0,0.2),
-      0 0 0.1em 0.25em inset rgba(255,255,255,0.2),
-      0 0 0 0 rgba(255,255,255,1);
+      inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+      inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+      0 0.25em 0.125em -0.125em rgba(0, 0, 0, 0.2),
+      0 0 0.1em 0.25em inset rgba(255, 255, 255, 0.2),
+      0 0 0 0 rgba(255, 255, 255, 1);
     backdrop-filter: blur(clamp(1px, 0.125em, 4px));
     transition: all var(--anim--hover-time) var(--anim--hover-ease);
     width: 100%;
     text-align: center;
-    font-size: 20px; 
+    font-size: 20px;
     -webkit-tap-highlight-color: transparent;
-        -webkit-touch-callout: none;
-        user-select: none;
+    -webkit-touch-callout: none;
+    user-select: none;
     box-sizing: border-box;
   }
 
@@ -245,11 +260,11 @@ title: "Dental WHMIS Training - Contact | WHMIS Wise"
     transform: scale(0.975);
     backdrop-filter: blur(0.01em);
     box-shadow:
-      inset 0 0.125em 0.125em rgba(0,0,0,0.05),
-      inset 0 -0.125em 0.125em rgba(255,255,255,0.5),
-      0 0.15em 0.05em -0.1em rgba(0,0,0,0.25),
-      0 0 0.05em 0.1em inset rgba(255,255,255,0.5),
-      0 0 0 0 rgba(255,255,255,1);
+      inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+      inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+      0 0.15em 0.05em -0.1em rgba(0, 0, 0, 0.25),
+      0 0 0.05em 0.1em inset rgba(255, 255, 255, 0.5),
+      0 0 0 0 rgba(255, 255, 255, 1);
   }
 
   .glass-button span {
@@ -258,7 +273,7 @@ title: "Dental WHMIS Training - Contact | WHMIS Wise"
     font-weight: 600;
     letter-spacing: 0.05em;
     color: #323232;
-    text-shadow: 0em 0.25em 0.05em rgba(0,0,0,0.1);
+    text-shadow: 0em 0.25em 0.05em rgba(0, 0, 0, 0.1);
     padding: 0.75em 1.5em;
   }
 
@@ -271,7 +286,7 @@ title: "Dental WHMIS Training - Contact | WHMIS Wise"
     top: calc(var(--border-width) / 2);
     left: calc(var(--border-width) / 2);
     border-radius: 999vw;
-    background: linear-gradient(var(--angle-2), rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 40% 50%, rgba(255,255,255,0) 55%);
+    background: linear-gradient(var(--angle-2), rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 40% 50%, rgba(255, 255, 255, 0) 55%);
     background-size: 200% 200%;
     background-position: 0% 50%;
     mix-blend-mode: screen;
@@ -279,33 +294,72 @@ title: "Dental WHMIS Training - Contact | WHMIS Wise"
     transition: background-position calc(var(--anim--hover-time) * 1.25) var(--anim--hover-ease), --angle-2 calc(var(--anim--hover-time) * 1.25) var(--anim--hover-ease);
   }
 
-  .glass-button:hover span::after { background-position: 25% 50%; }
-  .glass-button:active span::after { background-position: 50% 15%; --angle-2: -15deg; }
-
-  .glass-button::after {
-    content: ""; position: absolute; inset: 0; border-radius: 999vw;
-    width: calc(100% + var(--border-width)); height: calc(100% + var(--border-width));
-    top: calc(0% - var(--border-width) / 2); left: calc(0% - var(--border-width) / 2); padding: var(--border-width);
-    background: conic-gradient(from var(--angle-1) at 50% 50%, rgba(0,0,0,0.5), rgba(0,0,0,0) 5% 40%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 60% 95%, rgba(0,0,0,0.5)), linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.5));
-    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude;
-    transition: all var(--anim--hover-time) var(--anim--hover-ease), --angle-1 500ms ease;
-    box-shadow: inset 0 0 0 calc(var(--border-width) / 2) rgba(255,255,255,0.5);
+  .glass-button:hover span::after {
+    background-position: 25% 50%;
   }
 
-  .glass-button:hover::after { --angle-1: -125deg; }
-  .glass-button:active::after { --angle-1: -75deg; }
+  .glass-button:active span::after {
+    background-position: 50% 15%;
+    --angle-2: -15deg;
+  }
 
-  .button-row { display: flex; justify-content: center; width: 100%; }
+  .glass-button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 999vw;
+    width: calc(100% + var(--border-width));
+    height: calc(100% + var(--border-width));
+    top: calc(0% - var(--border-width) / 2);
+    left: calc(0% - var(--border-width) / 2);
+    padding: var(--border-width);
+    background: conic-gradient(from var(--angle-1) at 50% 50%, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 5% 40%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 60% 95%, rgba(0, 0, 0, 0.5)), linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    transition: all var(--anim--hover-time) var(--anim--hover-ease), --angle-1 500ms ease;
+    box-shadow: inset 0 0 0 calc(var(--border-width) / 2) rgba(255, 255, 255, 0.5);
+  }
+
+  .glass-button:hover::after {
+    --angle-1: -125deg;
+  }
+
+  .glass-button:active::after {
+    --angle-1: -75deg;
+  }
+
+  .button-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 
   /* ==========================================================
      🌟 MOBILE OVERRIDES (Stacks vertically on small screens) 🌟
      ========================================================== */
   @media (max-width: 768px) {
+
     /* 👇 INCREASED TOP PADDING TO 120px TO CLEAR THE NAVBAR */
-    .page-container { padding: 120px 20px 60px 20px; }
-    .contact-wrapper { flex-direction: column; gap: 40px; }
-    .contact-header { text-align: center; }
-    .contact-card { width: 100%; padding: 40px 25px; }
-    .gradient-text { font-size: 2.8rem; }
+    .page-container {
+      padding: 120px 20px 60px 20px;
+    }
+
+    .contact-wrapper {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .contact-header {
+      text-align: center;
+    }
+
+    .contact-card {
+      width: 100%;
+      padding: 40px 25px;
+    }
+
+    .gradient-text {
+      font-size: 2.8rem;
+    }
   }
 </style>
