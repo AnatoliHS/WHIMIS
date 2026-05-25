@@ -16,11 +16,10 @@ title: "Pharmacy WHMIS Training - Contact | WHMIS Wise"
     </div>
 
     <div class="contact-card">
-      <form action="https://formsubmit.co/" method="POST">
-        <input type="text" name="_honey" style="display:none">
+      <form id="contact-form" action="/api/submit" method="POST">
+        <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" style="display:none"
+          aria-hidden="true">
         <input type="hidden" name="_subject" value="New Inquiry - WHMIS Wise Website">
-
-        <input type="hidden" name="_next" value="https://whmiswise.com/thanks">
 
         <div class="input-group">
           <label for="name">Full Name</label>
@@ -29,7 +28,9 @@ title: "Pharmacy WHMIS Training - Contact | WHMIS Wise"
 
         <div class="input-group">
           <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="john@dentalclinic.com" required>
+          <input type="email" id="email" name="email" placeholder="john@dentalclinic.com"
+            pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$"
+            title="Please enter a valid email address (e.g. name@domain.com)" required>
         </div>
 
         <div class="input-group">
@@ -37,7 +38,11 @@ title: "Pharmacy WHMIS Training - Contact | WHMIS Wise"
           <textarea id="message" name="message" rows="4" placeholder="How can we help you today?" required></textarea>
         </div>
 
-        <div class="button-row" style="margin-top: 30px; margin-bottom: 0;">
+        <!-- Turnstile Widget -->
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAADWE7PkNeWRF3GpG"
+          style="margin-bottom: 1.5rem; display: flex; justify-content: center;"></div>
+
+        <div class="button-row" style="margin-top: 10px; margin-bottom: 0;">
           <div class="button-wrap">
             <button class="glass-button" type="submit">
               <span>Send Message</span>
@@ -366,3 +371,6 @@ title: "Pharmacy WHMIS Training - Contact | WHMIS Wise"
     }
   }
 </style>
+
+<!-- Cloudflare Turnstile API Engine Script -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
