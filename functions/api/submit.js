@@ -96,8 +96,8 @@ export async function onRequestPost(context) {
         'Authorization': `Bearer ${context.env.RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'onboarding@resend.dev', // Resend default address for unverified domains
-        to: ['tony_777@hotmail.com'], // The email where you want to receive these messages
+        from: 'info@chastech.ca', // Resend default address for unverified domains
+        to: ['info@chastech.ca'], // The email where you want to receive these messages
         reply_to: data.email,
         subject: data._subject || `New Inquiry from ${data.name}`,
         html: emailBody,
